@@ -1,0 +1,50 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use HybridPHP\Core\Container;
+use HybridPHP\Core\Debug\DebugServiceProvider;
+use HybridPHP\Core\Console\Commands\DebugCommand;
+use HybridPHP\Core\FileLogger;
+
+// 检查是否在命令行环境
+if (php_sapi_name() !== 'cli') {
+    echo "This script can only be run from the command line.\n";
+    exit(1);
+}
+
+// 创建容器
+$container = new Container();
+
+// 加载配置
+$debugConfig = require __DIR__ . '/../config/debug.php';
+
+// 创建日志记录器
+$logger = new FileLogger(__DIR__ . '/../storage/logs/debug.log');
+$container->singleton('logger', $logger);
+
+// 注册调试服务
+$debugProvider = new DebugServiceProvider($container, $debugConfig);
+$debugProvider->register();
+
+// 创建调试命令
+$debugCommand = new DebugCommand($container);
+
+// 获取命令行参数
+$args = array_slice($argv, 1);
+
+// 如果没有参数，显示帮助
+if (empty($args)) {
+    $args = ['help'];
+}
+
+// 执行命令
+try {
+    $exitCode = $debugCommand->execute($args);
+    exit($exitCode);
+} catch (\Throwable $e) {
+    echo "❌ Error: " . $e->getMessage() . "\n";
+    echo "Stack trace:\n" . $e->getTraceAsString() . "\n";
+    exit(1);
+}

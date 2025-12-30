@@ -1,0 +1,78 @@
+[mysqld]
+# Basic settings
+user = mysql
+pid-file = /var/run/mysqld/mysqld.pid
+socket = /var/run/mysqld/mysqld.sock
+port = 3306
+basedir = /usr
+datadir = /var/lib/mysql
+tmpdir = /tmp
+lc-messages-dir = /usr/share/mysql
+skip-external-locking
+
+# Character set
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+init_connect = 'SET NAMES utf8mb4'
+
+# Connection settings
+max_connections = 200
+max_connect_errors = 10000
+max_allowed_packet = 64M
+interactive_timeout = 600
+wait_timeout = 600
+
+# Buffer settings
+innodb_buffer_pool_size = 512M
+innodb_buffer_pool_instances = 2
+innodb_log_file_size = 128M
+innodb_log_buffer_size = 16M
+innodb_flush_log_at_trx_commit = 2
+innodb_flush_method = O_DIRECT
+
+# Query cache
+query_cache_type = 1
+query_cache_size = 64M
+query_cache_limit = 2M
+
+# Temporary tables
+tmp_table_size = 64M
+max_heap_table_size = 64M
+
+# MyISAM settings
+key_buffer_size = 32M
+read_buffer_size = 2M
+read_rnd_buffer_size = 16M
+sort_buffer_size = 8M
+
+# Binary logging
+log-bin = mysql-bin
+binlog_format = ROW
+expire_logs_days = 7
+max_binlog_size = 100M
+
+# Slow query log
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2
+
+# Error log
+log-error = /var/log/mysql/error.log
+
+# General log (disable in production)
+general_log = 0
+
+# Security
+local-infile = 0
+skip-show-database
+
+# Performance schema
+performance_schema = ON
+performance_schema_max_table_instances = 400
+performance_schema_max_table_handles = 4000
+
+[mysql]
+default-character-set = utf8mb4
+
+[client]
+default-character-set = utf8mb4

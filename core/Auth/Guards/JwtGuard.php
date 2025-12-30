@@ -1,0 +1,229 @@
+<?php
+
+declare(strict_types=1);
+
+namespace HybridPHP\Core\Auth\Guards;
+
+use Amp\Future;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+use Firebase\JWT\ExpiredException;
+use HybridPHP\Core\Auth\AuthInterface;
+use HybridPHP\Core\Auth\UserInterface;
+use HybridPHP\Core\Auth\UserProviderInterface;
+use function Amp\async;
+use function Amp\delay;
+
+/**
+ * JWT authentication guard
+ */
+class JwtGuard implements AuthInterface
+{
+    private UserProviderInterface $provider;
+    private array $config;
+    private ?UserInterface $user = null;
+
+    public function __construct(UserProviderInterface $provider, array $config)
+    {
+        $this->provider = $provider;
+        $this->config = $config;
+    }
+
+    /**
+     * Attempt to authenticate a user
+     *
+     * @param array $credentials
+     * @return Future<UserInterface|null>
+     */
+    public function attempt(array $credentials): Future
+    {
+        return async(function () use ($credentials) {
+            $user = $this->provider->retrieveByCredentials($credentials)->await();
+            
+            if ($user && $this->provider->validateCredentials($user, $credentials)->await()) {
+                $this->user = $user;
+                return $user;
+            }
+
+            return null;
+        });
+    }
+
+    /**
+     * Login a user and generate JWT token
+     *
+     * @param UserInterface $user
+     * @param bool $remember
+     * @return Promise<string>
+     */
+    public function login(UserInterface $user, bool $remember = false): Promise
+    {
+        return async(function () use ($user, $remember) {
+            $this->user = $user;
+            
+            $payload = [
+                'iss' => $_SERVER['HTTP_HOST'] ?? 'hybridphp',
+                'aud' => $_SERVER['HTTP_HOST'] ?? 'hybridphp',
+                'iat' => time(),
+                'exp' => time() + ($remember ? $this->config['refresh_ttl'] : $this->config['ttl']),
+                'sub' => $user->getId(),
+                'username' => $user->getUsername(),
+                'email' => $user->getEmail(),
+                'roles' => $user->getRoles(),
+            ];
+
+            return JWT::encode($payload, $this->config['secret'], $this->config['algorithm']);
+        });
+    }
+
+    /**
+     * Logout the current user
+     *
+     * @return Promise<bool>
+     */
+    public function logout(): Promise
+    {
+        return async(function () {
+            $this->user = null;
+            return true;
+        });
+    }
+
+    /**
+     * Get the currently authenticated user
+     *
+     * @return Promise<UserInterface|null>
+     */
+    public function user(): Promise
+    {
+        return async(function () {
+            return $this->user;
+        });
+    }
+
+    /**
+     * Check if a user is authenticated
+     *
+     * @return Promise<bool>
+     */
+    public function check(): Promise
+    {
+        return async(function () {
+            return $this->user !== null;
+        });
+    }
+
+    /**
+     * Get the user ID
+     *
+     * @return Promise<int|string|null>
+     */
+    public function id(): Promise
+    {
+        return async(function () {
+            return $this->user?->getId();
+        });
+    }
+
+    /**
+     * Validate a JWT token
+     *
+     * @param string $token
+     * @return Future<UserInterface|null>
+     */
+    public function validateToken(string $token): Future
+    {
+        return async(function () use ($token) {
+            try {
+                $decoded = JWT::decode($token, new Key($this->config['secret'], $this->config['algorithm']));
+                $payload = (array) $decoded;
+
+                if (!isset($payload['sub'])) {
+                    return null;
+                }
+
+                $user = $this->provider->retrieveById($payload['sub'])->await();
+                
+                if ($user && $user->isActive()) {
+                    $this->user = $user;
+                    return $user;
+                }
+
+                return null;
+            } catch (ExpiredException $e) {
+                return null;
+            } catch (\Exception $e) {
+                return null;
+            }
+        });
+    }
+
+    /**
+     * Refresh a JWT token
+     *
+     * @param string $token
+     * @return Future<string|null>
+     */
+    public function refreshToken(string $token): Future
+    {
+        return async(function () use ($token) {
+            try {
+                $decoded = JWT::decode($token, new Key($this->config['secret'], $this->config['algorithm']));
+                $payload = (array) $decoded;
+
+                if (!isset($payload['sub'])) {
+                    return null;
+                }
+
+                $user = $this->provider->retrieveById($payload['sub'])->await();
+                
+                if ($user && $user->isActive()) {
+                    return $this->login($user)->await();
+                }
+
+                return null;
+            } catch (\Exception $e) {
+                return null;
+            }
+        });
+    }
+
+    /**
+     * Generate a JWT token for a user
+     *
+     * @param UserInterface $user
+     * @param int|null $ttl
+     * @return string
+     */
+    public function generateToken(UserInterface $user, ?int $ttl = null): string
+    {
+        $payload = [
+            'iss' => $_SERVER['HTTP_HOST'] ?? 'hybridphp',
+            'aud' => $_SERVER['HTTP_HOST'] ?? 'hybridphp',
+            'iat' => time(),
+            'exp' => time() + ($ttl ?? $this->config['ttl']),
+            'sub' => $user->getId(),
+            'username' => $user->getUsername(),
+            'email' => $user->getEmail(),
+            'roles' => $user->getRoles(),
+        ];
+
+        return JWT::encode($payload, $this->config['secret'], $this->config['algorithm']);
+    }
+
+    /**
+     * Parse JWT token payload
+     *
+     * @param string $token
+     * @return array|null
+     */
+    public function parseToken(string $token): ?array
+    {
+        try {
+            $decoded = JWT::decode($token, new Key($this->config['secret'], $this->config['algorithm']));
+            return (array) $decoded;
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+}

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CLI Arguments" tests="82" assertions="154" errors="29" failures="0" skipped="0" time="0.019939">
+    <testsuite name="Tests\Unit\Core\ApplicationTest" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" tests="7" assertions="18" errors="0" failures="0" skipped="0" time="0.004800">
+      <testcase name="testApplicationInitialization" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" line="21" class="Tests\Unit\Core\ApplicationTest" classname="Tests.Unit.Core.ApplicationTest" assertions="4" time="0.003470"/>
+      <testcase name="testLifecycleHooks" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" line="37" class="Tests\Unit\Core\ApplicationTest" classname="Tests.Unit.Core.ApplicationTest" assertions="2" time="0.000487"/>
+      <testcase name="testApplicationState" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" line="55" class="Tests\Unit\Core\ApplicationTest" classname="Tests.Unit.Core.ApplicationTest" assertions="2" time="0.000188"/>
+      <testcase name="testVersionAndEnvironment" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" line="61" class="Tests\Unit\Core\ApplicationTest" classname="Tests.Unit.Core.ApplicationTest" assertions="3" time="0.000266"/>
+      <testcase name="testCoroutineManagement" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" line="68" class="Tests\Unit\Core\ApplicationTest" classname="Tests.Unit.Core.ApplicationTest" assertions="2" time="0.000217"/>
+      <testcase name="testEventEmitterIntegration" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" line="74" class="Tests\Unit\Core\ApplicationTest" classname="Tests.Unit.Core.ApplicationTest" assertions="1" time="0.000091"/>
+      <testcase name="testCoreServicesRegistration" file="E:\repos\LaboFrame\tests\Unit\Core\ApplicationTest.php" line="29" class="Tests\Unit\Core\ApplicationTest" classname="Tests.Unit.Core.ApplicationTest" assertions="4" time="0.000082"/>
+    </testsuite>
+    <testsuite name="Tests\Unit\Core\ContainerTest" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" tests="10" assertions="13" errors="0" failures="0" skipped="0" time="0.001145">
+      <testcase name="testImplementsPsrContainer" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="19" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="1" time="0.000071"/>
+      <testcase name="testBindAndResolveSimpleClass" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="24" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="1" time="0.000069"/>
+      <testcase name="testSingletonBinding" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="33" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="1" time="0.000215"/>
+      <testcase name="testClosureBinding" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="43" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="1" time="0.000058"/>
+      <testcase name="testInstanceBinding" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="54" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="1" time="0.000048"/>
+      <testcase name="testAliasBinding" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="64" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="1" time="0.000050"/>
+      <testcase name="testHasMethod" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="74" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="2" time="0.000071"/>
+      <testcase name="testAutomaticDependencyInjection" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="82" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="2" time="0.000081"/>
+      <testcase name="testFlushMethod" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="109" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="1" time="0.000052"/>
+      <testcase name="testCircularDependencyDetection" file="E:\repos\LaboFrame\tests\Unit\Core\ContainerTest.php" line="93" class="Tests\Unit\Core\ContainerTest" classname="Tests.Unit.Core.ContainerTest" assertions="2" time="0.000430"/>
+    </testsuite>
+    <testsuite name="Tests\Unit\Config\ConfigManagerTest" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" tests="12" assertions="24" errors="0" failures="0" skipped="0" time="0.001314">
+      <testcase name="testGetSimpleValue" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="27" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="3" time="0.000302"/>
+      <testcase name="testGetNestedValue" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="34" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="2" time="0.000089"/>
+      <testcase name="testGetWithDefault" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="40" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="2" time="0.000069"/>
+      <testcase name="testGetNonexistent" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="46" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="2" time="0.000152"/>
+      <testcase name="testSetValue" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="52" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="1" time="0.000071"/>
+      <testcase name="testSetNestedValue" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="58" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="1" time="0.000061"/>
+      <testcase name="testHas" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="64" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="4" time="0.000066"/>
+      <testcase name="testAll" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="72" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="3" time="0.000233"/>
+      <testcase name="testMerge" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="80" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="1" time="0.000077"/>
+      <testcase name="testMergeDeep" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="86" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="2" time="0.000066"/>
+      <testcase name="testEmptyConfig" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="93" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="2" time="0.000071"/>
+      <testcase name="testArrayAccess" file="E:\repos\LaboFrame\tests\Unit\Config\ConfigManagerTest.php" line="100" class="Tests\Unit\Config\ConfigManagerTest" classname="Tests.Unit.Config.ConfigManagerTest" assertions="1" time="0.000057"/>
+    </testsuite>
+    <testsuite name="Tests\Unit\Http\RequestResponseTest" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" tests="16" assertions="60" errors="2" failures="0" skipped="0" time="0.010354">
+      <testcase name="testFluentValidation" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="57" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="0" time="0.005339">
+        <error type="Error">Tests\Unit\Http\RequestResponseTest::testFluentValidation&#13;
+Error: Class "HybridPHP\Core\Http\ValidationChain" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php:65</error>
+      </testcase>
+      <testcase name="testCustomValidationRule" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="74" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="0" time="0.000179">
+        <error type="Error">Tests\Unit\Http\RequestResponseTest::testCustomValidationRule&#13;
+Error: Class "HybridPHP\Core\Http\ValidationChain" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php:78</error>
+      </testcase>
+      <testcase name="testRequestCreation" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="17" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="4" time="0.000204"/>
+      <testcase name="testJsonResponse" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="91" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="3" time="0.000930"/>
+      <testcase name="testApiResponses" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="112" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="7" time="0.000168"/>
+      <testcase name="testContentNegotiation" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="132" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="2" time="0.000164"/>
+      <testcase name="testResponseCaching" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="147" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="3" time="0.000673"/>
+      <testcase name="testCorsResponse" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="158" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="3" time="0.000084"/>
+      <testcase name="testUploadedFile" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="171" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="5" time="0.000751"/>
+      <testcase name="testRequestConvenienceMethods" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="215" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="6" time="0.000118"/>
+      <testcase name="testResponseStatusChecks" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="230" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="6" time="0.000075"/>
+      <testcase name="testPaginatedResponse" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="247" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="7" time="0.000116"/>
+      <testcase name="testJsonRequest" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="27" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="3" time="0.000077"/>
+      <testcase name="testRequestValidation" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="37" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="3" time="0.000988"/>
+      <testcase name="testXmlResponse" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="101" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="4" time="0.000356"/>
+      <testcase name="testFileValidation" file="E:\repos\LaboFrame\tests\Unit\Http\RequestResponseTest.php" line="192" class="Tests\Unit\Http\RequestResponseTest" classname="Tests.Unit.Http.RequestResponseTest" assertions="4" time="0.000131"/>
+    </testsuite>
+    <testsuite name="Tests\Unit\Routing\FastRouterTest" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" tests="10" assertions="0" errors="10" failures="0" skipped="0" time="0.000000">
+      <testcase name="testGetRoute" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="16" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testGetRoute&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testPostRoute" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="24" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testPostRoute&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testRouteWithParameters" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="32" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testRouteWithParameters&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testRouteNotFound" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="40" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testRouteNotFound&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testMethodNotAllowed" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="48" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testMethodNotAllowed&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testRouteWithMiddleware" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="58" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testRouteWithMiddleware&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testAnyRoute" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="67" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testAnyRoute&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testComplexRoutePattern" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="78" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testComplexRoutePattern&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testRouteGroup" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="86" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testRouteGroup&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+      <testcase name="testRouteGroupWithMiddleware" file="E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php" line="96" class="Tests\Unit\Routing\FastRouterTest" classname="Tests.Unit.Routing.FastRouterTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Routing\FastRouterTest::testRouteGroupWithMiddleware&#13;
+Error: Class "Core\Routing\FastRouter" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Routing\FastRouterTest.php:13</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="Tests\Unit\Event\EventLoopTest" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" tests="10" assertions="0" errors="10" failures="0" skipped="0" time="0.000000">
+      <testcase name="testOnAndEmit" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="16" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testOnAndEmit&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testEmitWithData" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="28" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testEmitWithData&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testOff" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="39" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testOff&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testOffAll" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="53" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testOffAll&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testSetTimeout" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="72" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testSetTimeout&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testSetInterval" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="83" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testSetInterval&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testClearTimeout" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="94" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testClearTimeout&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testClearInterval" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="105" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testClearInterval&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testIsRunning" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="116" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testIsRunning&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+      <testcase name="testStop" file="E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php" line="123" class="Tests\Unit\Event\EventLoopTest" classname="Tests.Unit.Event.EventLoopTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Event\EventLoopTest::testStop&#13;
+Error: Class "Core\Event\EventLoop" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Event\EventLoopTest.php:13</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="Tests\Unit\Logger\FileLoggerTest" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" tests="7" assertions="0" errors="7" failures="0" skipped="0" time="0.000000">
+      <testcase name="testLogWritesToFile" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" line="26" class="Tests\Unit\Logger\FileLoggerTest" classname="Tests.Unit.Logger.FileLoggerTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Logger\FileLoggerTest::testLogWritesToFile&#13;
+Error: Class "Core\Logger\FileLogger" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php:16</error>
+      </testcase>
+      <testcase name="testLogLevelFiltering" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" line="35" class="Tests\Unit\Logger\FileLoggerTest" classname="Tests.Unit.Logger.FileLoggerTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Logger\FileLoggerTest::testLogLevelFiltering&#13;
+Error: Class "Core\Logger\FileLogger" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php:16</error>
+      </testcase>
+      <testcase name="testLogWithContext" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" line="49" class="Tests\Unit\Logger\FileLoggerTest" classname="Tests.Unit.Logger.FileLoggerTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Logger\FileLoggerTest::testLogWithContext&#13;
+Error: Class "Core\Logger\FileLogger" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php:16</error>
+      </testcase>
+      <testcase name="testLogLevelMethods" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" line="59" class="Tests\Unit\Logger\FileLoggerTest" classname="Tests.Unit.Logger.FileLoggerTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Logger\FileLoggerTest::testLogLevelMethods&#13;
+Error: Class "Core\Logger\FileLogger" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php:16</error>
+      </testcase>
+      <testcase name="testStringableMessage" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" line="81" class="Tests\Unit\Logger\FileLoggerTest" classname="Tests.Unit.Logger.FileLoggerTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Logger\FileLoggerTest::testStringableMessage&#13;
+Error: Class "Core\Logger\FileLogger" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php:16</error>
+      </testcase>
+      <testcase name="testSetLevel" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" line="95" class="Tests\Unit\Logger\FileLoggerTest" classname="Tests.Unit.Logger.FileLoggerTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Logger\FileLoggerTest::testSetLevel&#13;
+Error: Class "Core\Logger\FileLogger" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php:16</error>
+      </testcase>
+      <testcase name="testInvalidLogLevel" file="E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php" line="101" class="Tests\Unit\Logger\FileLoggerTest" classname="Tests.Unit.Logger.FileLoggerTest" assertions="0" time="0.000000">
+        <error type="Error">Tests\Unit\Logger\FileLoggerTest::testInvalidLogLevel&#13;
+Error: Class "Core\Logger\FileLogger" not found
+&#13;
+E:\repos\LaboFrame\tests\Unit\Logger\FileLoggerTest.php:16</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="Tests\Unit\CiCdTest" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" tests="10" assertions="39" errors="0" failures="0" skipped="0" time="0.002326">
+      <testcase name="testGithubWorkflowsExist" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="38" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="3" time="0.000223"/>
+      <testcase name="testKubernetesManifestsExist" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="51" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="6" time="0.000102"/>
+      <testcase name="testDeploymentScriptsExist" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="64" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="4" time="0.000078"/>
+      <testcase name="testPerformanceTestExists" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="78" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="1" time="0.000060"/>
+      <testcase name="testDocumentationExists" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="86" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="1" time="0.000052"/>
+      <testcase name="testSecurityScannerWorks" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="104" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="3" time="0.000319"/>
+      <testcase name="testWorkflowJobsAreConfigured" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="114" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="6" time="0.000408"/>
+      <testcase name="testDeploymentWorkflowSupportsBlueGreen" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="136" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="2" time="0.000235"/>
+      <testcase name="testComposerScriptsExist" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="16" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="10" time="0.000460"/>
+      <testcase name="testNotificationSystemWorks" file="E:\repos\LaboFrame\tests\Unit\CiCdTest.php" line="94" class="Tests\Unit\CiCdTest" classname="Tests.Unit.CiCdTest" assertions="3" time="0.000390"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

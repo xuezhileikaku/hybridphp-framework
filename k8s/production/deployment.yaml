@@ -1,0 +1,121 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hybridphp-production
+  namespace: production
+  labels:
+    app: hybridphp
+    environment: production
+spec:
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 2
+  selector:
+    matchLabels:
+      app: hybridphp
+      environment: production
+  template:
+    metadata:
+      labels:
+        app: hybridphp
+        environment: production
+    spec:
+      containers:
+      - name: hybridphp
+        image: ghcr.io/hybridphp/framework:${IMAGE_TAG}
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: APP_ENV
+          value: "production"
+        - name: APP_DEBUG
+          value: "false"
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-production-secrets
+              key: db-host
+        - name: DB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-production-secrets
+              key: db-database
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-production-secrets
+              key: db-username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-production-secrets
+              key: db-password
+        - name: REDIS_HOST
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-production-secrets
+              key: redis-host
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-production-secrets
+              key: redis-password
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-production-secrets
+              key: jwt-secret
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: app-storage
+          mountPath: /app/storage
+        - name: config
+          mountPath: /app/config/production
+          readOnly: true
+      volumes:
+      - name: app-storage
+        persistentVolumeClaim:
+          claimName: hybridphp-production-storage
+      - name: config
+        configMap:
+          name: hybridphp-production-config
+      imagePullSecrets:
+      - name: ghcr-secret
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - hybridphp
+              topologyKey: kubernetes.io/hostname

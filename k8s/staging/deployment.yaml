@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hybridphp-staging
+  namespace: staging
+  labels:
+    app: hybridphp
+    environment: staging
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: hybridphp
+      environment: staging
+  template:
+    metadata:
+      labels:
+        app: hybridphp
+        environment: staging
+    spec:
+      containers:
+      - name: hybridphp
+        image: ghcr.io/hybridphp/framework:${IMAGE_TAG}
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: APP_ENV
+          value: "staging"
+        - name: APP_DEBUG
+          value: "true"
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-staging-secrets
+              key: db-host
+        - name: DB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-staging-secrets
+              key: db-database
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-staging-secrets
+              key: db-username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-staging-secrets
+              key: db-password
+        - name: REDIS_HOST
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-staging-secrets
+              key: redis-host
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-staging-secrets
+              key: redis-password
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: app-storage
+          mountPath: /app/storage
+        - name: config
+          mountPath: /app/config/staging
+          readOnly: true
+      volumes:
+      - name: app-storage
+        persistentVolumeClaim:
+          claimName: hybridphp-staging-storage
+      - name: config
+        configMap:
+          name: hybridphp-staging-config
+      imagePullSecrets:
+      - name: ghcr-secret

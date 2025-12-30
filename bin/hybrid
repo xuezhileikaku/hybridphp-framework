@@ -1,0 +1,68 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * HybridPHP Framework CLI Tool
+ * 
+ * This is the command line interface for HybridPHP Framework
+ * providing various development and management commands.
+ */
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../core/helpers.php';
+
+// Include Amp functions
+use function Amp\async;
+use function Amp\await;
+
+use Symfony\Component\Console\Application;
+use HybridPHP\Core\Console\Commands\MigrateCommand;
+use HybridPHP\Core\Console\Commands\SeedCommand;
+use HybridPHP\Core\Console\Commands\MakeMigrationCommand;
+use HybridPHP\Core\Console\Commands\MakeSeederCommand;
+use HybridPHP\Core\Console\Commands\MigrationStatusCommand;
+use HybridPHP\Core\Console\Commands\MakeControllerCommand;
+use HybridPHP\Core\Console\Commands\MakeModelCommand;
+use HybridPHP\Core\Console\Commands\MakeMiddlewareCommand;
+use HybridPHP\Core\Console\Commands\MakeProjectCommand;
+use HybridPHP\Core\Console\Commands\ServerCommand;
+use HybridPHP\Core\Console\Commands\CodeCheckCommand;
+use HybridPHP\Core\Console\Commands\ScheduleCommand;
+use HybridPHP\Core\Console\Commands\HelpCommand;
+use HybridPHP\Core\Console\Commands\InfoCommand;
+use HybridPHP\Core\Console\Commands\ClearCommand;
+
+// Load environment variables
+if (file_exists(__DIR__ . '/../.env')) {
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+    $dotenv->load();
+}
+
+$application = new Application('HybridPHP Framework', '1.0.0');
+
+// Register commands
+$application->add(new MigrateCommand());
+$application->add(new SeedCommand());
+$application->add(new MakeMigrationCommand());
+$application->add(new MakeSeederCommand());
+$application->add(new MigrationStatusCommand());
+
+// Code generation commands
+$application->add(new MakeControllerCommand());
+$application->add(new MakeModelCommand());
+$application->add(new MakeMiddlewareCommand());
+$application->add(new MakeProjectCommand());
+
+// Server management commands
+$application->add(new ServerCommand());
+
+// Development tools
+$application->add(new CodeCheckCommand());
+$application->add(new ScheduleCommand());
+
+// Help and documentation
+$application->add(new HelpCommand());
+$application->add(new InfoCommand());
+$application->add(new ClearCommand());
+
+$application->run();

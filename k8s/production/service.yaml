@@ -1,0 +1,110 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hybridphp-production
+  namespace: production
+  labels:
+    app: hybridphp
+    environment: production
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: hybridphp
+    environment: production
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hybridphp-production-config
+  namespace: production
+data:
+  app.php: |
+    <?php
+    return [
+        'name' => 'HybridPHP',
+        'env' => 'production',
+        'debug' => false,
+        'url' => 'https://hybridphp.com',
+        'timezone' => 'UTC',
+    ];
+  database.php: |
+    <?php
+    return [
+        'default' => 'mysql',
+        'connections' => [
+            'mysql' => [
+                'driver' => 'mysql',
+                'host' => env('DB_HOST', 'localhost'),
+                'port' => env('DB_PORT', '3306'),
+                'database' => env('DB_DATABASE', 'hybridphp'),
+                'username' => env('DB_USERNAME', 'root'),
+                'password' => env('DB_PASSWORD', ''),
+                'charset' => 'utf8mb4',
+                'collation' => 'utf8mb4_unicode_ci',
+                'pool' => [
+                    'min' => 10,
+                    'max' => 50,
+                ],
+                'read' => [
+                    'host' => env('DB_READ_HOST', env('DB_HOST', 'localhost')),
+                ],
+                'write' => [
+                    'host' => env('DB_WRITE_HOST', env('DB_HOST', 'localhost')),
+                ],
+            ],
+        ],
+    ];
+  cache.php: |
+    <?php
+    return [
+        'default' => 'redis',
+        'stores' => [
+            'redis' => [
+                'driver' => 'redis',
+                'host' => env('REDIS_HOST', 'localhost'),
+                'port' => env('REDIS_PORT', 6379),
+                'password' => env('REDIS_PASSWORD', null),
+                'database' => 0,
+                'pool' => [
+                    'min' => 10,
+                    'max' => 50,
+                ],
+                'cluster' => [
+                    'enabled' => env('REDIS_CLUSTER', false),
+                    'nodes' => env('REDIS_CLUSTER_NODES', ''),
+                ],
+            ],
+        ],
+    ];
+  monitoring.php: |
+    <?php
+    return [
+        'prometheus' => [
+            'enabled' => true,
+            'endpoint' => '/metrics',
+            'namespace' => 'hybridphp',
+        ],
+        'health_checks' => [
+            'database' => true,
+            'redis' => true,
+            'external_apis' => true,
+        ],
+    ];
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hybridphp-production-storage
+  namespace: production
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: fast-ssd

@@ -1,0 +1,148 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hybridphp
+  namespace: hybridphp
+  labels:
+    app: hybridphp
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hybridphp
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: hybridphp
+        version: v1
+    spec:
+      containers:
+      - name: hybridphp
+        image: hybridphp:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 2346
+          name: websocket
+        env:
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-secrets
+              key: DB_USERNAME
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-secrets
+              key: DB_PASSWORD
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-secrets
+              key: JWT_SECRET
+        - name: APP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: hybridphp-secrets
+              key: APP_KEY
+        envFrom:
+        - configMapRef:
+            name: hybridphp-config
+        volumeMounts:
+        - name: storage
+          mountPath: /var/www/html/storage
+        - name: logs
+          mountPath: /var/www/html/storage/logs
+        livenessProbe:
+          httpGet:
+            path: /api/v1/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          timeoutSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /api/v1/health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          runAsGroup: 1000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: hybridphp-storage-pvc
+      - name: logs
+        persistentVolumeClaim:
+          claimName: hybridphp-logs-pvc
+      securityContext:
+        fsGroup: 1000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hybridphp-service
+  namespace: hybridphp
+  labels:
+    app: hybridphp
+spec:
+  selector:
+    app: hybridphp
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  - name: websocket
+    port: 2346
+    targetPort: 2346
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hybridphp-storage-pvc
+  namespace: hybridphp
+  labels:
+    app: hybridphp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: standard
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hybridphp-logs-pvc
+  namespace: hybridphp
+  labels:
+    app: hybridphp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: standard

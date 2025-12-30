@@ -1,0 +1,52 @@
+# Docker Compose Override for Development
+# This file is automatically loaded by docker-compose and provides development-specific overrides
+
+version: '3.8'
+
+services:
+  hybridphp:
+    build:
+      target: development
+    volumes:
+      # Mount source code for hot reload in development
+      - .:/var/www/html
+      - /var/www/html/vendor  # Exclude vendor directory
+      - /var/www/html/node_modules  # Exclude node_modules if present
+    environment:
+      - APP_ENV=development
+      - APP_DEBUG=true
+      - XDEBUG_MODE=debug
+      - XDEBUG_CONFIG=client_host=host.docker.internal
+    ports:
+      - "9003:9003"  # Xdebug port
+    command: ["php", "bootstrap.php", "--env=development", "--debug"]
+
+  mysql:
+    ports:
+      - "3306:3306"  # Expose MySQL port for external access
+    environment:
+      - MYSQL_GENERAL_LOG=1
+      - MYSQL_GENERAL_LOG_FILE=/var/lib/mysql/general.log
+    volumes:
+      - ./docker/mysql/dev.cnf:/etc/mysql/conf.d/dev.cnf
+
+  redis:
+    ports:
+      - "6379:6379"  # Expose Redis port for external access
+    command: redis-server --appendonly yes --appendfsync everysec
+
+  nginx:
+    volumes:
+      # Mount nginx config for easy modification
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+
+# Development-specific networks and volumes
+networks:
+  hybridphp_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+  redis_data:
