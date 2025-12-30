@@ -1,0 +1,253 @@
+<?php
+
+declare(strict_types=1);
+
+namespace HybridPHP\Core\Console\Commands;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use HybridPHP\Core\Database\Migration\MigrationManager;
+use HybridPHP\Core\Database\DatabaseManager;
+use HybridPHP\Core\ConfigManager;
+
+/**
+ * Make migration command
+ */
+class MakeMigrationCommand extends Command
+{
+    protected static $defaultName = 'make:migration';
+    protected static $defaultDescription = 'Create a new migration file';
+
+    private MigrationManager $migrationManager;
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    protected function configure(): void
+    {
+        $this
+            ->setDescription('Create a new migration file')
+            ->setHelp('This command allows you to create a new migration file')
+            ->addArgument(
+                'name',
+                InputArgument::REQUIRED,
+                'The name of the migration'
+            )
+            ->addOption(
+                'create',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'Create a new table'
+            )
+            ->addOption(
+                'table',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'Modify an existing table'
+            )
+            ->addOption(
+                'database',
+                'd',
+                InputOption::VALUE_REQUIRED,
+                'Database connection to use',
+                'mysql'
+            );
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $io = new SymfonyStyle($input, $output);
+        
+        try {
+            // Initialize migration manager
+            $this->initializeMigrationManager($input->getOption('database'));
+            
+            $name = $input->getArgument('name');
+            $createTable = $input->getOption('create');
+            $modifyTable = $input->getOption('table');
+            
+            if ($createTable) {
+                $filename = $this->createTableMigration($name, $createTable);
+            } elseif ($modifyTable) {
+                $filename = $this->createTableModificationMigration($name, $modifyTable);
+            } else {
+                $filename = $this->migrationManager->createMigration($name);
+            }
+            
+            $io->success("Migration created: {$filename}");
+            $io->text("Edit the migration file at: database/migrations/{$filename}");
+            
+            return Command::SUCCESS;
+            
+        } catch (\Throwable $e) {
+            $io->error('Failed to create migration: ' . $e->getMessage());
+            if ($output->isVerbose()) {
+                $io->text($e->getTraceAsString());
+            }
+            return Command::FAILURE;
+        }
+    }
+
+    private function initializeMigrationManager(string $database): void
+    {
+        // Load configuration
+        $config = new ConfigManager();
+        $config->load($this->getConfigPath() . '/database.php', 'database');
+        $dbConfig = $config->get('database');
+        
+        // Initialize database manager
+        $databaseManager = new DatabaseManager($dbConfig, new \Psr\Log\NullLogger());
+        
+        // Initialize migration manager
+        $this->migrationManager = new MigrationManager(
+            $databaseManager->connection($database),
+            $dbConfig['migrations'] ?? []
+        );
+    }
+
+    private function getConfigPath(): string
+    {
+        return dirname(__DIR__, 3) . '/config';
+    }
+
+    private function createTableMigration(string $name, string $tableName): string
+    {
+        $timestamp = date('Y_m_d_His');
+        $className = $this->studlyCase($name);
+        $filename = "{$timestamp}_{$name}.php";
+        $filepath = 'database/migrations/' . $filename;
+        
+        $template = $this->getCreateTableTemplate($className, $name, $tableName);
+        
+        if (!is_dir('database/migrations')) {
+            mkdir('database/migrations', 0755, true);
+        }
+        
+        file_put_contents($filepath, $template);
+        
+        return $filename;
+    }
+
+    private function createTableModificationMigration(string $name, string $tableName): string
+    {
+        $timestamp = date('Y_m_d_His');
+        $className = $this->studlyCase($name);
+        $filename = "{$timestamp}_{$name}.php";
+        $filepath = 'database/migrations/' . $filename;
+        
+        $template = $this->getModifyTableTemplate($className, $name, $tableName);
+        
+        if (!is_dir('database/migrations')) {
+            mkdir('database/migrations', 0755, true);
+        }
+        
+        file_put_contents($filepath, $template);
+        
+        return $filename;
+    }
+
+    private function studlyCase(string $value): string
+    {
+        $value = str_replace(['-', '_'], ' ', $value);
+        $value = ucwords($value);
+        return str_replace(' ', '', $value);
+    }
+
+    private function getCreateTableTemplate(string $className, string $name, string $tableName): string
+    {
+        return <<<PHP
+<?php
+
+declare(strict_types=1);
+
+use HybridPHP\Core\Database\Migration\AbstractMigration;
+use HybridPHP\Core\Database\DatabaseInterface;
+use Amp\Future;
+
+/**
+ * Migration: {$name}
+ */
+class {$className} extends AbstractMigration
+{
+    protected string \$description = '{$name}';
+
+    /**
+     * Run the migration
+     */
+    public function up(DatabaseInterface \$database): Future
+    {
+        return \$this->createTable('{$tableName}', [
+            'id' => ['type' => 'INT', 'length' => 11, 'unsigned' => true, 'auto_increment' => true],
+            // Add your columns here
+            'created_at' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP'],
+            'updated_at' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP', 'nullable' => true],
+        ], [
+            'primary_key' => 'id'
+        ]);
+    }
+
+    /**
+     * Reverse the migration
+     */
+    public function down(DatabaseInterface \$database): Future
+    {
+        return \$this->dropTable('{$tableName}');
+    }
+}
+PHP;
+    }
+
+    private function getModifyTableTemplate(string $className, string $name, string $tableName): string
+    {
+        return <<<PHP
+<?php
+
+declare(strict_types=1);
+
+use HybridPHP\Core\Database\Migration\AbstractMigration;
+use HybridPHP\Core\Database\DatabaseInterface;
+use Amp\Future;
+use function Amp\async;
+
+/**
+ * Migration: {$name}
+ */
+class {$className} extends AbstractMigration
+{
+    protected string \$description = '{$name}';
+
+    /**
+     * Run the migration
+     */
+    public function up(DatabaseInterface \$database): Future
+    {
+        return async(function () {
+            // Add your table modifications here
+            // Example:
+            // \$this->addColumn('{$tableName}', 'new_column', ['type' => 'VARCHAR', 'length' => 255])->await();
+            // \$this->addIndex('{$tableName}', 'idx_new_column', ['new_column'])->await();
+        });
+    }
+
+    /**
+     * Reverse the migration
+     */
+    public function down(DatabaseInterface \$database): Future
+    {
+        return async(function () {
+            // Reverse your table modifications here
+            // Example:
+            // \$this->dropIndex('{$tableName}', 'idx_new_column')->await();
+            // \$this->dropColumn('{$tableName}', 'new_column')->await();
+        });
+    }
+}
+PHP;
+    }
+}

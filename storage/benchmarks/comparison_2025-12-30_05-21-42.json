@@ -1,0 +1,155 @@
+{
+    "timestamp": "2025-12-30T05:21:42+00:00",
+    "reference_data": {
+        "laravel": {
+            "routing": 8500,
+            "container": 12000,
+            "request_response": 6000,
+            "json_serialization": 45000,
+            "hello_world_qps": 800
+        },
+        "symfony": {
+            "routing": 15000,
+            "container": 18000,
+            "request_response": 8000,
+            "json_serialization": 48000,
+            "hello_world_qps": 1200
+        },
+        "swoole": {
+            "routing": 85000,
+            "container": 95000,
+            "request_response": 75000,
+            "json_serialization": 120000,
+            "hello_world_qps": 150000
+        },
+        "workerman": {
+            "routing": 80000,
+            "container": 90000,
+            "request_response": 70000,
+            "json_serialization": 110000,
+            "hello_world_qps": 140000
+        }
+    },
+    "comparison": {
+        "laravel": {
+            "routing": {
+                "hybrid_ops": 681479.8446715518,
+                "reference_ops": 8500,
+                "ratio": 80.17409937312375,
+                "percentage": 7917.409937312375,
+                "faster": true
+            },
+            "container": {
+                "hybrid_ops": 1168915.8909759768,
+                "reference_ops": 12000,
+                "ratio": 97.4096575813314,
+                "percentage": 9640.96575813314,
+                "faster": true
+            },
+            "request_response": {
+                "hybrid_ops": 351161.1590659824,
+                "reference_ops": 6000,
+                "ratio": 58.526859844330396,
+                "percentage": 5752.685984433039,
+                "faster": true
+            },
+            "json_serialization": {
+                "hybrid_ops": 8645.98692641776,
+                "reference_ops": 45000,
+                "ratio": 0.19213304280928353,
+                "percentage": -80.78669571907164,
+                "faster": false
+            }
+        },
+        "symfony": {
+            "routing": {
+                "hybrid_ops": 681479.8446715518,
+                "reference_ops": 15000,
+                "ratio": 45.43198964477012,
+                "percentage": 4443.198964477012,
+                "faster": true
+            },
+            "container": {
+                "hybrid_ops": 1168915.8909759768,
+                "reference_ops": 18000,
+                "ratio": 64.9397717208876,
+                "percentage": 6393.97717208876,
+                "faster": true
+            },
+            "request_response": {
+                "hybrid_ops": 351161.1590659824,
+                "reference_ops": 8000,
+                "ratio": 43.895144883247795,
+                "percentage": 4289.514488324779,
+                "faster": true
+            },
+            "json_serialization": {
+                "hybrid_ops": 8645.98692641776,
+                "reference_ops": 48000,
+                "ratio": 0.18012472763370332,
+                "percentage": -81.98752723662966,
+                "faster": false
+            }
+        },
+        "swoole": {
+            "routing": {
+                "hybrid_ops": 681479.8446715518,
+                "reference_ops": 85000,
+                "ratio": 8.017409937312374,
+                "percentage": 701.7409937312374,
+                "faster": true
+            },
+            "container": {
+                "hybrid_ops": 1168915.8909759768,
+                "reference_ops": 95000,
+                "ratio": 12.304377799747124,
+                "percentage": 1130.4377799747124,
+                "faster": true
+            },
+            "request_response": {
+                "hybrid_ops": 351161.1590659824,
+                "reference_ops": 75000,
+                "ratio": 4.682148787546431,
+                "percentage": 368.2148787546431,
+                "faster": true
+            },
+            "json_serialization": {
+                "hybrid_ops": 8645.98692641776,
+                "reference_ops": 120000,
+                "ratio": 0.07204989105348134,
+                "percentage": -92.79501089465187,
+                "faster": false
+            }
+        },
+        "workerman": {
+            "routing": {
+                "hybrid_ops": 681479.8446715518,
+                "reference_ops": 80000,
+                "ratio": 8.518498058394398,
+                "percentage": 751.8498058394398,
+                "faster": true
+            },
+            "container": {
+                "hybrid_ops": 1168915.8909759768,
+                "reference_ops": 90000,
+                "ratio": 12.98795434417752,
+                "percentage": 1198.795434417752,
+                "faster": true
+            },
+            "request_response": {
+                "hybrid_ops": 351161.1590659824,
+                "reference_ops": 70000,
+                "ratio": 5.016587986656892,
+                "percentage": 401.6587986656892,
+                "faster": true
+            },
+            "json_serialization": {
+                "hybrid_ops": 8645.98692641776,
+                "reference_ops": 110000,
+                "ratio": 0.07859988114925236,
+                "percentage": -92.14001188507477,
+                "faster": false
+            }
+        }
+    }
+}

@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>HybridPHP Framework API Documentation</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">HybridPHP Framework API Documentation</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/hybridphp.html" class="">HybridPHP</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/hybridphp-core.html" class="">Core</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category -packages">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="packages/HybridPHP.html" class="-active">HybridPHP</a>
+</h4>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category -reports">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="graphs/classes.html">Class Diagram</a></h3>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category -indices">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
+    </ul>
+
+    <article class="phpdocumentor-element -package">
+        <h2 class="phpdocumentor-content__title">HybridPHP</h2>
+
+        
+<h3 id="toc">
+    Table of Contents
+    <a href="packages/HybridPHP.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h3>
+
+
+
+    <h4 id="toc-interfaces">
+        Interfaces
+        <a href="packages/HybridPHP.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-AsyncRequestHandlerInterface.html"><abbr title="\HybridPHP\Core\AsyncRequestHandlerInterface">AsyncRequestHandlerInterface</abbr></a></dt><dd>Async-compatible request handler interface
+Compatible with AMPHP v3 fiber-based async operations
+Extends PSR-15 RequestHandlerInterface for full compatibility</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Auth-AuthInterface.html"><abbr title="\HybridPHP\Core\Auth\AuthInterface">AuthInterface</abbr></a></dt><dd>Authentication interface</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Auth-MFA-MFAInterface.html"><abbr title="\HybridPHP\Core\Auth\MFA\MFAInterface">MFAInterface</abbr></a></dt><dd>Multi-Factor Authentication interface</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Auth-RBAC-PermissionInterface.html"><abbr title="\HybridPHP\Core\Auth\RBAC\PermissionInterface">PermissionInterface</abbr></a></dt><dd>Permission interface for RBAC</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Auth-RBAC-RoleInterface.html"><abbr title="\HybridPHP\Core\Auth\RBAC\RoleInterface">RoleInterface</abbr></a></dt><dd>Role interface for RBAC</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Auth-UserInterface.html"><abbr title="\HybridPHP\Core\Auth\UserInterface">UserInterface</abbr></a></dt><dd>User interface for authentication</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Auth-UserProviderInterface.html"><abbr title="\HybridPHP\Core\Auth\UserProviderInterface">UserProviderInterface</abbr></a></dt><dd>User provider interface</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Cache-CacheInterface.html"><abbr title="\HybridPHP\Core\Cache\CacheInterface">CacheInterface</abbr></a></dt><dd>Async Cache Interface</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-ConnectionPoolInterface.html"><abbr title="\HybridPHP\Core\Database\ConnectionPoolInterface">ConnectionPoolInterface</abbr></a></dt><dd>Connection pool interface</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-DatabaseInterface.html"><abbr title="\HybridPHP\Core\Database\DatabaseInterface">DatabaseInterface</abbr></a></dt><dd>Database interface for async operations</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-Migration-MigrationInterface.html"><abbr title="\HybridPHP\Core\Database\Migration\MigrationInterface">MigrationInterface</abbr></a></dt><dd>Interface for database migrations</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-ORM-ActiveQueryInterface.html"><abbr title="\HybridPHP\Core\Database\ORM\ActiveQueryInterface">ActiveQueryInterface</abbr></a></dt><dd>ActiveQuery interface for chainable queries</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-ORM-ActiveRecordInterface.html"><abbr title="\HybridPHP\Core\Database\ORM\ActiveRecordInterface">ActiveRecordInterface</abbr></a></dt><dd>ActiveRecord interface for ORM</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-ORM-DataMapperInterface.html"><abbr title="\HybridPHP\Core\Database\ORM\DataMapperInterface">DataMapperInterface</abbr></a></dt><dd>DataMapper interface for ORM</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-ORM-ModelInterface.html"><abbr title="\HybridPHP\Core\Database\ORM\ModelInterface">ModelInterface</abbr></a></dt><dd>Base model interface for ORM</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-ORM-RelationInterface.html"><abbr title="\HybridPHP\Core\Database\ORM\RelationInterface">RelationInterface</abbr></a></dt><dd>Relation interface for model relationships</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-ORM-ValidatorInterface.html"><abbr title="\HybridPHP\Core\Database\ORM\ValidatorInterface">ValidatorInterface</abbr></a></dt><dd>Validator interface for ORM validation</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Database-Seeder-SeederInterface.html"><abbr title="\HybridPHP\Core\Database\Seeder\SeederInterface">SeederInterface</abbr></a></dt><dd>Interface for database seeders</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Health-HealthCheckInterface.html"><abbr title="\HybridPHP\Core\Health\HealthCheckInterface">HealthCheckInterface</abbr></a></dt><dd>Health check interface for system components</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-LoggerInterface.html"><abbr title="\HybridPHP\Core\LoggerInterface">LoggerInterface</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-MiddlewareInterface.html"><abbr title="\HybridPHP\Core\MiddlewareInterface">MiddlewareInterface</abbr></a></dt><dd>Async middleware interface extending PSR-15
+All middleware must be coroutine-compatible for async operations</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Routing-RouteInterface.html"><abbr title="\HybridPHP\Core\Routing\RouteInterface">RouteInterface</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Routing-RouterInterface.html"><abbr title="\HybridPHP\Core\Routing\RouterInterface">RouterInterface</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/HybridPHP-Core-Security-EncryptionInterface.html"><abbr title="\HybridPHP\Core\Security\EncryptionInterface">EncryptionInterface</abbr></a></dt><dd>Encryption service interface for data security</dd>    </dl>
+
+    <h4 id="toc-classes">
+        Classes
+        <a href="packages/HybridPHP.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Application.html"><abbr title="\HybridPHP\Core\Application">Application</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-AuthManager.html"><abbr title="\HybridPHP\Core\Auth\AuthManager">AuthManager</abbr></a></dt><dd>Authentication manager</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-AuthServiceProvider.html"><abbr title="\HybridPHP\Core\Auth\AuthServiceProvider">AuthServiceProvider</abbr></a></dt><dd>Authentication service provider</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Guards-JwtGuard.html"><abbr title="\HybridPHP\Core\Auth\Guards\JwtGuard">JwtGuard</abbr></a></dt><dd>JWT authentication guard</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Guards-OAuth2Guard.html"><abbr title="\HybridPHP\Core\Auth\Guards\OAuth2Guard">OAuth2Guard</abbr></a></dt><dd>OAuth2 authentication guard</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Guards-SessionGuard.html"><abbr title="\HybridPHP\Core\Auth\Guards\SessionGuard">SessionGuard</abbr></a></dt><dd>Session-based authentication guard</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-MFA-EmailMFAManager.html"><abbr title="\HybridPHP\Core\Auth\MFA\EmailMFAManager">EmailMFAManager</abbr></a></dt><dd>Email-based MFA Manager</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-MFA-MFAManager.html"><abbr title="\HybridPHP\Core\Auth\MFA\MFAManager">MFAManager</abbr></a></dt><dd>Multi-Factor Authentication Manager</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-MFA-TOTPManager.html"><abbr title="\HybridPHP\Core\Auth\MFA\TOTPManager">TOTPManager</abbr></a></dt><dd>TOTP (Time-based One-Time Password) Manager</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Middleware-AuthMiddleware.html"><abbr title="\HybridPHP\Core\Auth\Middleware\AuthMiddleware">AuthMiddleware</abbr></a></dt><dd>Authentication middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Middleware-MFAMiddleware.html"><abbr title="\HybridPHP\Core\Auth\Middleware\MFAMiddleware">MFAMiddleware</abbr></a></dt><dd>Multi-Factor Authentication middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Middleware-PermissionMiddleware.html"><abbr title="\HybridPHP\Core\Auth\Middleware\PermissionMiddleware">PermissionMiddleware</abbr></a></dt><dd>Permission-based authorization middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Middleware-RoleMiddleware.html"><abbr title="\HybridPHP\Core\Auth\Middleware\RoleMiddleware">RoleMiddleware</abbr></a></dt><dd>Role-based authorization middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-Providers-DatabaseUserProvider.html"><abbr title="\HybridPHP\Core\Auth\Providers\DatabaseUserProvider">DatabaseUserProvider</abbr></a></dt><dd>Database user provider</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-RBAC-RBACManager.html"><abbr title="\HybridPHP\Core\Auth\RBAC\RBACManager">RBACManager</abbr></a></dt><dd>RBAC (Role-Based Access Control) Manager</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Auth-User.html"><abbr title="\HybridPHP\Core\Auth\User">User</abbr></a></dt><dd>Yii2-style User component for authentication</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-AbstractCache.html"><abbr title="\HybridPHP\Core\Cache\AbstractCache">AbstractCache</abbr></a></dt><dd>Abstract Cache Implementation with common functionality</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-CacheCommand.html"><abbr title="\HybridPHP\Core\Cache\CacheCommand">CacheCommand</abbr></a></dt><dd>Cache management console command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-CacheManager.html"><abbr title="\HybridPHP\Core\Cache\CacheManager">CacheManager</abbr></a></dt><dd>Cache Manager with anti-patterns protection</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-CacheMiddleware.html"><abbr title="\HybridPHP\Core\Cache\CacheMiddleware">CacheMiddleware</abbr></a></dt><dd>HTTP Cache Middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-CacheServiceProvider.html"><abbr title="\HybridPHP\Core\Cache\CacheServiceProvider">CacheServiceProvider</abbr></a></dt><dd>Cache Service Provider</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-ConsistentHash.html"><abbr title="\HybridPHP\Core\Cache\ConsistentHash">ConsistentHash</abbr></a></dt><dd>Consistent Hash implementation for distributed caching</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-FileCache.html"><abbr title="\HybridPHP\Core\Cache\FileCache">FileCache</abbr></a></dt><dd>File-based cache implementation</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-MemoryCache.html"><abbr title="\HybridPHP\Core\Cache\MemoryCache">MemoryCache</abbr></a></dt><dd>In-memory cache implementation for L1 caching</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-MultiLevelCache.html"><abbr title="\HybridPHP\Core\Cache\MultiLevelCache">MultiLevelCache</abbr></a></dt><dd>Multi-level cache implementation (L1: Memory, L2: Redis)</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Cache-RedisCache.html"><abbr title="\HybridPHP\Core\Cache\RedisCache">RedisCache</abbr></a></dt><dd>Redis-based async cache implementation</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-ConfigManager.html"><abbr title="\HybridPHP\Core\ConfigManager">ConfigManager</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-HelpCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\HelpCommand">HelpCommand</abbr></a></dt><dd>Enhanced help command with Yii2-style experience</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MakeControllerCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MakeControllerCommand">MakeControllerCommand</abbr></a></dt><dd>Make controller command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MakeMiddlewareCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MakeMiddlewareCommand">MakeMiddlewareCommand</abbr></a></dt><dd>Make middleware command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MakeMigrationCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MakeMigrationCommand">MakeMigrationCommand</abbr></a></dt><dd>Make migration command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MakeModelCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MakeModelCommand">MakeModelCommand</abbr></a></dt><dd>Make model command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MakeProjectCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MakeProjectCommand">MakeProjectCommand</abbr></a></dt><dd>Make project scaffolding command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MakeSeederCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MakeSeederCommand">MakeSeederCommand</abbr></a></dt><dd>Make seeder command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MigrateCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MigrateCommand">MigrateCommand</abbr></a></dt><dd>Database migration command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-MonitoringCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\MonitoringCommand">MonitoringCommand</abbr></a></dt><dd>Monitoring management command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-SeedCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\SeedCommand">SeedCommand</abbr></a></dt><dd>Database seeder command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Console-Commands-ServerCommand.html"><abbr title="\HybridPHP\Core\Console\Commands\ServerCommand">ServerCommand</abbr></a></dt><dd>Server management command</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Container.html"><abbr title="\HybridPHP\Core\Container">Container</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-ContainerException.html"><abbr title="\HybridPHP\Core\ContainerException">ContainerException</abbr></a></dt><dd>Container exception class</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Coroutine.html"><abbr title="\HybridPHP\Core\Coroutine">Coroutine</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ConnectionPool.html"><abbr title="\HybridPHP\Core\Database\ConnectionPool">ConnectionPool</abbr></a></dt><dd>Async database connection pool implementation</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-Database.html"><abbr title="\HybridPHP\Core\Database\Database">Database</abbr></a></dt><dd>Async database implementation with connection pooling</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-DatabaseManager.html"><abbr title="\HybridPHP\Core\Database\DatabaseManager">DatabaseManager</abbr></a></dt><dd>Database manager with read/write separation and failover support</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-DatabaseMonitor.html"><abbr title="\HybridPHP\Core\Database\DatabaseMonitor">DatabaseMonitor</abbr></a></dt><dd>Database monitoring and statistics collector</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-DatabaseServiceProvider.html"><abbr title="\HybridPHP\Core\Database\DatabaseServiceProvider">DatabaseServiceProvider</abbr></a></dt><dd>Database service provider for dependency injection</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-Migration-AbstractMigration.html"><abbr title="\HybridPHP\Core\Database\Migration\AbstractMigration">AbstractMigration</abbr></a></dt><dd>Abstract base class for migrations</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-Migration-MigrationManager.html"><abbr title="\HybridPHP\Core\Database\Migration\MigrationManager">MigrationManager</abbr></a></dt><dd>Migration manager for handling database migrations</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-ActiveQuery.html"><abbr title="\HybridPHP\Core\Database\ORM\ActiveQuery">ActiveQuery</abbr></a></dt><dd>ActiveQuery implementation for chainable queries</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-ActiveRecord.html"><abbr title="\HybridPHP\Core\Database\ORM\ActiveRecord">ActiveRecord</abbr></a></dt><dd>Base ActiveRecord implementation</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-DataMapper.html"><abbr title="\HybridPHP\Core\Database\ORM\DataMapper">DataMapper</abbr></a></dt><dd>DataMapper implementation for ORM</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-Relation.html"><abbr title="\HybridPHP\Core\Database\ORM\Relation">Relation</abbr></a></dt><dd>Relation implementation for model relationships</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-Validators-EmailValidator.html"><abbr title="\HybridPHP\Core\Database\ORM\Validators\EmailValidator">EmailValidator</abbr></a></dt><dd>Email validator</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-Validators-RequiredValidator.html"><abbr title="\HybridPHP\Core\Database\ORM\Validators\RequiredValidator">RequiredValidator</abbr></a></dt><dd>Required field validator</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-Validators-StringValidator.html"><abbr title="\HybridPHP\Core\Database\ORM\Validators\StringValidator">StringValidator</abbr></a></dt><dd>String validator</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-ORM-Validators-UniqueValidator.html"><abbr title="\HybridPHP\Core\Database\ORM\Validators\UniqueValidator">UniqueValidator</abbr></a></dt><dd>Unique field validator</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-QueryBuilder.html"><abbr title="\HybridPHP\Core\Database\QueryBuilder">QueryBuilder</abbr></a></dt><dd>Simple async query builder</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-Seeder-AbstractSeeder.html"><abbr title="\HybridPHP\Core\Database\Seeder\AbstractSeeder">AbstractSeeder</abbr></a></dt><dd>Abstract base class for seeders</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-Seeder-FakeDataGenerator.html"><abbr title="\HybridPHP\Core\Database\Seeder\FakeDataGenerator">FakeDataGenerator</abbr></a></dt><dd>Simple fake data generator</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Database-Seeder-SeederManager.html"><abbr title="\HybridPHP\Core\Database\Seeder\SeederManager">SeederManager</abbr></a></dt><dd>Seeder manager for handling database seeders</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Debug-CoroutineDebugger.html"><abbr title="\HybridPHP\Core\Debug\CoroutineDebugger">CoroutineDebugger</abbr></a></dt><dd>Coroutine debugging and monitoring tool</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Debug-DebugErrorHandler.html"><abbr title="\HybridPHP\Core\Debug\DebugErrorHandler">DebugErrorHandler</abbr></a></dt><dd>Enhanced error handler with detailed debugging information</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Debug-DebugServiceProvider.html"><abbr title="\HybridPHP\Core\Debug\DebugServiceProvider">DebugServiceProvider</abbr></a></dt><dd>Debug service provider for registering debugging tools</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Debug-PerformanceProfiler.html"><abbr title="\HybridPHP\Core\Debug\PerformanceProfiler">PerformanceProfiler</abbr></a></dt><dd>Performance profiler for debugging and analysis</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Debug-QueryAnalyzer.html"><abbr title="\HybridPHP\Core\Debug\QueryAnalyzer">QueryAnalyzer</abbr></a></dt><dd>SQL query analyzer for performance debugging</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-ErrorHandler.html"><abbr title="\HybridPHP\Core\ErrorHandler">ErrorHandler</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-EventEmitter.html"><abbr title="\HybridPHP\Core\EventEmitter">EventEmitter</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-EventLoop.html"><abbr title="\HybridPHP\Core\EventLoop">EventLoop</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-FileLogger.html"><abbr title="\HybridPHP\Core\FileLogger">FileLogger</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-AbstractHealthCheck.html"><abbr title="\HybridPHP\Core\Health\AbstractHealthCheck">AbstractHealthCheck</abbr></a></dt><dd>Abstract base class for health checks</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-Checks-ApplicationHealthCheck.html"><abbr title="\HybridPHP\Core\Health\Checks\ApplicationHealthCheck">ApplicationHealthCheck</abbr></a></dt><dd>Application health check</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-Checks-CacheHealthCheck.html"><abbr title="\HybridPHP\Core\Health\Checks\CacheHealthCheck">CacheHealthCheck</abbr></a></dt><dd>Cache health check</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-Checks-DatabaseHealthCheck.html"><abbr title="\HybridPHP\Core\Health\Checks\DatabaseHealthCheck">DatabaseHealthCheck</abbr></a></dt><dd>Database health check</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-Checks-ExternalServiceHealthCheck.html"><abbr title="\HybridPHP\Core\Health\Checks\ExternalServiceHealthCheck">ExternalServiceHealthCheck</abbr></a></dt><dd>External service health check</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-HealthCheckManager.html"><abbr title="\HybridPHP\Core\Health\HealthCheckManager">HealthCheckManager</abbr></a></dt><dd>Health check manager</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-HealthCheckReport.html"><abbr title="\HybridPHP\Core\Health\HealthCheckReport">HealthCheckReport</abbr></a></dt><dd>Health check report</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-HealthCheckResult.html"><abbr title="\HybridPHP\Core\Health\HealthCheckResult">HealthCheckResult</abbr></a></dt><dd>Health check result</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-HealthServiceProvider.html"><abbr title="\HybridPHP\Core\Health\HealthServiceProvider">HealthServiceProvider</abbr></a></dt><dd>Health check service provider</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Health-MonitoringService.html"><abbr title="\HybridPHP\Core\Health\MonitoringService">MonitoringService</abbr></a></dt><dd>Monitoring service for health checks and metrics</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-Request.html"><abbr title="\HybridPHP\Core\Http\Request">Request</abbr></a></dt><dd>PSR-7 compatible HTTP Request implementation with Yii2-style convenience methods</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-RequestFactory.html"><abbr title="\HybridPHP\Core\Http\RequestFactory">RequestFactory</abbr></a></dt><dd>Request factory for creating Request objects from various sources</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-RequestValidator.html"><abbr title="\HybridPHP\Core\Http\RequestValidator">RequestValidator</abbr></a></dt><dd>Request validator with Yii2-style validation rules and chaining support</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-ValidationChain.html"><abbr title="\HybridPHP\Core\Http\ValidationChain">ValidationChain</abbr></a></dt><dd>Fluent validation chain for Yii2-style chaining</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-FieldValidator.html"><abbr title="\HybridPHP\Core\Http\FieldValidator">FieldValidator</abbr></a></dt><dd>Field validator for fluent chaining</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-Response.html"><abbr title="\HybridPHP\Core\Http\Response">Response</abbr></a></dt><dd>PSR-7 compatible HTTP Response implementation with Yii2-style convenience methods
+Supports multi-format responses, content negotiation, and caching</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-ResponseFactory.html"><abbr title="\HybridPHP\Core\Http\ResponseFactory">ResponseFactory</abbr></a></dt><dd>Response factory with Yii2-style static methods for creating responses</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-UploadedFile.html"><abbr title="\HybridPHP\Core\Http\UploadedFile">UploadedFile</abbr></a></dt><dd>PSR-7 compatible UploadedFile implementation with Yii2-style convenience methods</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Http-Uri.html"><abbr title="\HybridPHP\Core\Http\Uri">Uri</abbr></a></dt><dd>PSR-7 compatible URI implementation</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-AsyncLogger.html"><abbr title="\HybridPHP\Core\Logging\AsyncLogger">AsyncLogger</abbr></a></dt><dd>Async Logger with batch processing and non-blocking writes</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-DistributedTracing.html"><abbr title="\HybridPHP\Core\Logging\DistributedTracing">DistributedTracing</abbr></a></dt><dd>Distributed Tracing for tracking requests across services</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-ElkHandler.html"><abbr title="\HybridPHP\Core\Logging\ElkHandler">ElkHandler</abbr></a></dt><dd>ELK (Elasticsearch) Handler for structured logging</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-KafkaHandler.html"><abbr title="\HybridPHP\Core\Logging\KafkaHandler">KafkaHandler</abbr></a></dt><dd>Kafka Handler for streaming logs to Apache Kafka</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-LogArchiver.html"><abbr title="\HybridPHP\Core\Logging\LogArchiver">LogArchiver</abbr></a></dt><dd>Log Archiver for managing log file rotation, compression, and cleanup</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-LoggingServiceProvider.html"><abbr title="\HybridPHP\Core\Logging\LoggingServiceProvider">LoggingServiceProvider</abbr></a></dt><dd>Logging Service Provider for registering logging services</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-LogManager.html"><abbr title="\HybridPHP\Core\Logging\LogManager">LogManager</abbr></a></dt><dd>Log Manager for handling multiple logging channels and configurations</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Logging-TracingMiddleware.html"><abbr title="\HybridPHP\Core\Logging\TracingMiddleware">TracingMiddleware</abbr></a></dt><dd>Tracing Middleware for automatic request tracing and logging</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Message.html"><abbr title="\HybridPHP\Core\Message">Message</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-AbstractMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\AbstractMiddleware">AbstractMiddleware</abbr></a></dt><dd>Abstract base class for async middleware
+Compatible with AMPHP v3 fiber-based async operations</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-AuthMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\AuthMiddleware">AuthMiddleware</abbr></a></dt><dd>Async authentication middleware
+Handles JWT, session, and API key authentication</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-ContentSecurityPolicyMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\ContentSecurityPolicyMiddleware">ContentSecurityPolicyMiddleware</abbr></a></dt><dd>Async Content Security Policy (CSP) Middleware
+Implements comprehensive CSP protection against XSS and data injection attacks</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-CorsMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\CorsMiddleware">CorsMiddleware</abbr></a></dt><dd>Async CORS middleware
+Handles Cross-Origin Resource Sharing headers</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-CsrfProtectionMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\CsrfProtectionMiddleware">CsrfProtectionMiddleware</abbr></a></dt><dd>Async CSRF Protection Middleware
+Protects against Cross-Site Request Forgery attacks</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-DebugMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\DebugMiddleware">DebugMiddleware</abbr></a></dt><dd>Debug middleware for collecting performance and debugging data</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-InputValidationMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\InputValidationMiddleware">InputValidationMiddleware</abbr></a></dt><dd>Async Input Validation and Data Cleaning Middleware
+Validates and sanitizes all incoming data</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-LoggingMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\LoggingMiddleware">LoggingMiddleware</abbr></a></dt><dd>Async logging middleware
+Logs HTTP requests and responses asynchronously</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-PerformanceMonitoringMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\PerformanceMonitoringMiddleware">PerformanceMonitoringMiddleware</abbr></a></dt><dd>Performance monitoring middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-RateLimitMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\RateLimitMiddleware">RateLimitMiddleware</abbr></a></dt><dd>Async rate limiting middleware
+Implements token bucket and sliding window algorithms</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-SecurityHeadersMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\SecurityHeadersMiddleware">SecurityHeadersMiddleware</abbr></a></dt><dd>Async Security Headers Middleware
+Adds security-related HTTP headers to responses</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-SecurityMiddlewareManager.html"><abbr title="\HybridPHP\Core\Middleware\SecurityMiddlewareManager">SecurityMiddlewareManager</abbr></a></dt><dd>Security Middleware Manager
+Manages and configures all security-related middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-SqlInjectionProtectionMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\SqlInjectionProtectionMiddleware">SqlInjectionProtectionMiddleware</abbr></a></dt><dd>Async SQL Injection Protection Middleware
+Detects and prevents SQL injection attempts</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Middleware-XssProtectionMiddleware.html"><abbr title="\HybridPHP\Core\Middleware\XssProtectionMiddleware">XssProtectionMiddleware</abbr></a></dt><dd>Async XSS Protection Middleware
+Protects against Cross-Site Scripting attacks</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-MiddlewareManager.html"><abbr title="\HybridPHP\Core\MiddlewareManager">MiddlewareManager</abbr></a></dt><dd>Middleware manager for organizing global, group, and route-specific middleware</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-MiddlewarePipeline.html"><abbr title="\HybridPHP\Core\MiddlewarePipeline">MiddlewarePipeline</abbr></a></dt><dd>Middleware pipeline implementing the onion model for async middleware processing
+Supports global, route group, and single route middleware
+Compatible with AMPHP v3 fiber-based async operations</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Monitoring-AlertManager.html"><abbr title="\HybridPHP\Core\Monitoring\AlertManager">AlertManager</abbr></a></dt><dd>Alert management system</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Monitoring-NotificationHandlers.html"><abbr title="\HybridPHP\Core\Monitoring\NotificationHandlers">NotificationHandlers</abbr></a></dt><dd>Built-in notification handlers</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Monitoring-MetricsCollector.html"><abbr title="\HybridPHP\Core\Monitoring\MetricsCollector">MetricsCollector</abbr></a></dt><dd>Metrics collector for performance monitoring</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Monitoring-MonitoringDashboard.html"><abbr title="\HybridPHP\Core\Monitoring\MonitoringDashboard">MonitoringDashboard</abbr></a></dt><dd>Real-time monitoring dashboard</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Monitoring-MonitoringServiceProvider.html"><abbr title="\HybridPHP\Core\Monitoring\MonitoringServiceProvider">MonitoringServiceProvider</abbr></a></dt><dd>Monitoring service provider</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Monitoring-PerformanceMonitor.html"><abbr title="\HybridPHP\Core\Monitoring\PerformanceMonitor">PerformanceMonitor</abbr></a></dt><dd>Performance monitoring service</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Process-Manager.html"><abbr title="\HybridPHP\Core\Process\Manager">Manager</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Process-Worker.html"><abbr title="\HybridPHP\Core\Process\Worker">Worker</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Routing-Route.html"><abbr title="\HybridPHP\Core\Routing\Route">Route</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Routing-Router.html"><abbr title="\HybridPHP\Core\Routing\Router">Router</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Routing-RouterFacade.html"><abbr title="\HybridPHP\Core\Routing\RouterFacade">RouterFacade</abbr></a></dt><dd>Router Facade - Provides Yii2-style static methods for routing</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Security-AuditLogger.html"><abbr title="\HybridPHP\Core\Security\AuditLogger">AuditLogger</abbr></a></dt><dd>Audit logging service for security events</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Security-DataMasking.html"><abbr title="\HybridPHP\Core\Security\DataMasking">DataMasking</abbr></a></dt><dd>Data masking and anonymization service</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Security-EncryptedCache.html"><abbr title="\HybridPHP\Core\Security\EncryptedCache">EncryptedCache</abbr></a></dt><dd>Encrypted cache wrapper that encrypts data before storing</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Security-EncryptionService.html"><abbr title="\HybridPHP\Core\Security\EncryptionService">EncryptionService</abbr></a></dt><dd>Async encryption service implementation</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Security-KeyManager.html"><abbr title="\HybridPHP\Core\Security\KeyManager">KeyManager</abbr></a></dt><dd>Key management service for encryption keys</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Security-SecurityServiceProvider.html"><abbr title="\HybridPHP\Core\Security\SecurityServiceProvider">SecurityServiceProvider</abbr></a></dt><dd>Security service provider for data encryption and audit logging</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Security-TlsConfiguration.html"><abbr title="\HybridPHP\Core\Security\TlsConfiguration">TlsConfiguration</abbr></a></dt><dd>TLS/SSL configuration service for secure transmission</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Server-AbstractServer.html"><abbr title="\HybridPHP\Core\Server\AbstractServer">AbstractServer</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Server-AmphpHttpServer.html"><abbr title="\HybridPHP\Core\Server\AmphpHttpServer">AmphpHttpServer</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Server-HybridHttpServer.html"><abbr title="\HybridPHP\Core\Server\HybridHttpServer">HybridHttpServer</abbr></a></dt><dd>Hybrid HTTP Server - Combines Workerman multi-process with AMPHP async capabilities</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Server-Server.html"><abbr title="\HybridPHP\Core\Server\Server">Server</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Server-ServerManager.html"><abbr title="\HybridPHP\Core\Server\ServerManager">ServerManager</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/HybridPHP-Core-Server-WebsocketServer.html"><abbr title="\HybridPHP\Core\Server\WebsocketServer">WebsocketServer</abbr></a></dt>    </dl>
+
+    <h4 id="toc-traits">
+        Traits
+        <a href="packages/HybridPHP.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/HybridPHP-Core-Cache-CacheableTrait.html"><abbr title="\HybridPHP\Core\Cache\CacheableTrait">CacheableTrait</abbr></a></dt><dd>Cacheable trait for models and services</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/HybridPHP-Core-Security-EncryptedModelTrait.html"><abbr title="\HybridPHP\Core\Security\EncryptedModelTrait">EncryptedModelTrait</abbr></a></dt><dd>Trait for models that need encrypted fields</dd>    </dl>
+
+
+
+
+
+
+<h4 id="toc-functions">
+    Functions
+    <a href="packages/HybridPHP.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_auth">auth()</a>
+    <span>
+                                &nbsp;: <abbr title="\AuthManager">AuthManager</abbr>    </span>
+</dt>
+<dd>Get the authentication manager instance</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_user">user()</a>
+    <span>
+                                &nbsp;: <abbr title="\User">User</abbr>    </span>
+</dt>
+<dd>Get the user component instance</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_rbac">rbac()</a>
+    <span>
+                                &nbsp;: <abbr title="\RBACManager">RBACManager</abbr>    </span>
+</dt>
+<dd>Get the RBAC manager instance</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_mfa">mfa()</a>
+    <span>
+                                &nbsp;: <abbr title="\MFAManager">MFAManager</abbr>    </span>
+</dt>
+<dd>Get the MFA manager instance</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_can">can()</a>
+    <span>
+                                &nbsp;: <abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;    </span>
+</dt>
+<dd>Check if current user has permission</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_hasRole">hasRole()</a>
+    <span>
+                                &nbsp;: <abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;    </span>
+</dt>
+<dd>Check if current user has role</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_isGuest">isGuest()</a>
+    <span>
+                                &nbsp;: <abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;    </span>
+</dt>
+<dd>Check if current user is guest (not authenticated)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_currentUser">currentUser()</a>
+    <span>
+                                &nbsp;: <abbr title="\Amp\Future">Future</abbr>&lt;string|int, <a href="classes/HybridPHP-Core-Auth-UserInterface.html"><abbr title="\HybridPHP\Core\Auth\UserInterface">UserInterface</abbr></a>|null&gt;    </span>
+</dt>
+<dd>Get current authenticated user</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_generateJWT">generateJWT()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generate JWT token for user</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_parseJWT">parseJWT()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+</dt>
+<dd>Parse JWT token payload</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_hashPassword">hashPassword()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Hash password using configured algorithm</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_verifyPassword">verifyPassword()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Verify password against hash</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_validatePassword">validatePassword()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Validate password against configured rules</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_env">env()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get environment variable value</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_config">config()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get configuration value</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_app">app()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get application instance or resolve from container</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_base_path">base_path()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get base path</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_storage_path">storage_path()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get storage path</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_config_path">config_path()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get config path</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_database_path">database_path()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get database path</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_public_path">public_path()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get public path</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_logger">logger()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>    </span>
+</dt>
+<dd>Get logger instance</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_cache">cache()</a>
+    <span>
+                                &nbsp;: <a href="classes/HybridPHP-Core-Cache-CacheInterface.html"><abbr title="\HybridPHP\Core\Cache\CacheInterface">CacheInterface</abbr></a>    </span>
+</dt>
+<dd>Get cache instance</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_response">response()</a>
+    <span>
+                                &nbsp;: <a href="classes/HybridPHP-Core-Http-ResponseFactory.html"><abbr title="\HybridPHP\Core\Http\ResponseFactory">ResponseFactory</abbr></a>    </span>
+</dt>
+<dd>Create response</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_dd">dd()</a>
+    <span>
+                                &nbsp;: never    </span>
+</dt>
+<dd>Dump and die</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_dump">dump()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Dump variables</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_now">now()</a>
+    <span>
+                                &nbsp;: <abbr title="\DateTimeImmutable">DateTimeImmutable</abbr>    </span>
+</dt>
+<dd>Get current datetime</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/default.html#function_uuid">uuid()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generate UUID</dd>
+
+    </dl>
+
+        
+
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="packages/HybridPHP.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_auth">
+        auth()
+        <a href="namespaces/default.html#function_auth" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+            <a href="packages/HybridPHP.html#source-view.18" class="phpdocumentor-element-found-in__source" data-line="18" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the authentication manager instance</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">auth</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$guard</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\AuthManager">AuthManager</abbr></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$guard</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\AuthManager">AuthManager</abbr></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_user">
+        user()
+        <a href="namespaces/default.html#function_user" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+            <a href="packages/HybridPHP.html#source-view.31" class="phpdocumentor-element-found-in__source" data-line="31" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the user component instance</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">user</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\User">User</abbr></span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\User">User</abbr></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_rbac">
+        rbac()
+        <a href="namespaces/default.html#function_rbac" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+            <a href="packages/HybridPHP.html#source-view.44" class="phpdocumentor-element-found-in__source" data-line="44" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the RBAC manager instance</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">rbac</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\RBACManager">RBACManager</abbr></span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\RBACManager">RBACManager</abbr></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_mfa">
+        mfa()
+        <a href="namespaces/default.html#function_mfa" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">57</span>
+
+            <a href="packages/HybridPHP.html#source-view.57" class="phpdocumentor-element-found-in__source" data-line="57" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the MFA manager instance</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">mfa</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\MFAManager">MFAManager</abbr></span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\MFAManager">MFAManager</abbr></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_can">
+        can()
+        <a href="namespaces/default.html#function_can" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">72</span>
+
+            <a href="packages/HybridPHP.html#source-view.72" class="phpdocumentor-element-found-in__source" data-line="72" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if current user has permission</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">can</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$permission</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$permission</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$params</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_hasRole">
+        hasRole()
+        <a href="namespaces/default.html#function_hasRole" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">85</span>
+
+            <a href="packages/HybridPHP.html#source-view.85" class="phpdocumentor-element-found-in__source" data-line="85" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if current user has role</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">hasRole</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$role</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_isGuest">
+        isGuest()
+        <a href="namespaces/default.html#function_isGuest" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">97</span>
+
+            <a href="packages/HybridPHP.html#source-view.97" class="phpdocumentor-element-found-in__source" data-line="97" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if current user is guest (not authenticated)</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">isGuest</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;</span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, bool&gt;</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_currentUser">
+        currentUser()
+        <a href="namespaces/default.html#function_currentUser" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">109</span>
+
+            <a href="packages/HybridPHP.html#source-view.109" class="phpdocumentor-element-found-in__source" data-line="109" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get current authenticated user</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">currentUser</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, <a href="classes/HybridPHP-Core-Auth-UserInterface.html"><abbr title="\HybridPHP\Core\Auth\UserInterface">UserInterface</abbr></a>|null&gt;</span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Amp\Future">Future</abbr>&lt;string|int, <a href="classes/HybridPHP-Core-Auth-UserInterface.html"><abbr title="\HybridPHP\Core\Auth\UserInterface">UserInterface</abbr></a>|null&gt;</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_generateJWT">
+        generateJWT()
+        <a href="namespaces/default.html#function_generateJWT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">123</span>
+
+            <a href="packages/HybridPHP.html#source-view.123" class="phpdocumentor-element-found-in__source" data-line="123" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Generate JWT token for user</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">generateJWT</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/HybridPHP-Core-Auth-UserInterface.html"><abbr title="\HybridPHP\Core\Auth\UserInterface">UserInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$user</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ttl</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$user</span>
+                : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/HybridPHP-Core-Auth-UserInterface.html"><abbr title="\HybridPHP\Core\Auth\UserInterface">UserInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$ttl</span>
+                : <span class="phpdocumentor-argument-list__argument__type">int|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_parseJWT">
+        parseJWT()
+        <a href="namespaces/default.html#function_parseJWT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">141</span>
+
+            <a href="packages/HybridPHP.html#source-view.141" class="phpdocumentor-element-found-in__source" data-line="141" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Parse JWT token payload</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">parseJWT</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$token</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_hashPassword">
+        hashPassword()
+        <a href="namespaces/default.html#function_hashPassword" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">159</span>
+
+            <a href="packages/HybridPHP.html#source-view.159" class="phpdocumentor-element-found-in__source" data-line="159" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Hash password using configured algorithm</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">hashPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$password</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_verifyPassword">
+        verifyPassword()
+        <a href="namespaces/default.html#function_verifyPassword" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">177</span>
+
+            <a href="packages/HybridPHP.html#source-view.177" class="phpdocumentor-element-found-in__source" data-line="177" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Verify password against hash</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">verifyPassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hash</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$password</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$hash</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_validatePassword">
+        validatePassword()
+        <a href="namespaces/default.html#function_validatePassword" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/Auth/helpers.php"><a href="files/core-auth-helpers.html"><abbr title="core/Auth/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">190</span>
+
+            <a href="packages/HybridPHP.html#source-view.190" class="phpdocumentor-element-found-in__source" data-line="190" data-modal="source-view" data-src="files/core/Auth/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Validate password against configured rules</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">validatePassword</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$password</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Array of validation errors (empty if valid)</p>
+</section>
+
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_env">
+        env()
+        <a href="namespaces/default.html#function_env" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+            <a href="packages/HybridPHP.html#source-view.13" class="phpdocumentor-element-found-in__source" data-line="13" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get environment variable value</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">env</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$key</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$default</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_config">
+        config()
+        <a href="namespaces/default.html#function_config" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+            <a href="packages/HybridPHP.html#source-view.44" class="phpdocumentor-element-found-in__source" data-line="44" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get configuration value</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">config</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$key</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$default</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_app">
+        app()
+        <a href="namespaces/default.html#function_app" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+            <a href="packages/HybridPHP.html#source-view.60" class="phpdocumentor-element-found-in__source" data-line="60" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get application instance or resolve from container</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">app</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$abstract</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$abstract</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_base_path">
+        base_path()
+        <a href="namespaces/default.html#function_base_path" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+            <a href="packages/HybridPHP.html#source-view.76" class="phpdocumentor-element-found-in__source" data-line="76" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get base path</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">base_path</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">''</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$path</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">''</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_storage_path">
+        storage_path()
+        <a href="namespaces/default.html#function_storage_path" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">87</span>
+
+            <a href="packages/HybridPHP.html#source-view.87" class="phpdocumentor-element-found-in__source" data-line="87" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get storage path</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">storage_path</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">''</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$path</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">''</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_config_path">
+        config_path()
+        <a href="namespaces/default.html#function_config_path" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">97</span>
+
+            <a href="packages/HybridPHP.html#source-view.97" class="phpdocumentor-element-found-in__source" data-line="97" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get config path</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">config_path</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">''</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$path</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">''</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_database_path">
+        database_path()
+        <a href="namespaces/default.html#function_database_path" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">107</span>
+
+            <a href="packages/HybridPHP.html#source-view.107" class="phpdocumentor-element-found-in__source" data-line="107" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get database path</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">database_path</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">''</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$path</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">''</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_public_path">
+        public_path()
+        <a href="namespaces/default.html#function_public_path" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">117</span>
+
+            <a href="packages/HybridPHP.html#source-view.117" class="phpdocumentor-element-found-in__source" data-line="117" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get public path</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">public_path</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">''</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$path</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">''</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_logger">
+        logger()
+        <a href="namespaces/default.html#function_logger" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">127</span>
+
+            <a href="packages/HybridPHP.html#source-view.127" class="phpdocumentor-element-found-in__source" data-line="127" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get logger instance</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">logger</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr></span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_cache">
+        cache()
+        <a href="namespaces/default.html#function_cache" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">137</span>
+
+            <a href="packages/HybridPHP.html#source-view.137" class="phpdocumentor-element-found-in__source" data-line="137" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get cache instance</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">cache</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$store</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/HybridPHP-Core-Cache-CacheInterface.html"><abbr title="\HybridPHP\Core\Cache\CacheInterface">CacheInterface</abbr></a></span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$store</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/HybridPHP-Core-Cache-CacheInterface.html"><abbr title="\HybridPHP\Core\Cache\CacheInterface">CacheInterface</abbr></a></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_response">
+        response()
+        <a href="namespaces/default.html#function_response" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">148</span>
+
+            <a href="packages/HybridPHP.html#source-view.148" class="phpdocumentor-element-found-in__source" data-line="148" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Create response</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">response</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/HybridPHP-Core-Http-ResponseFactory.html"><abbr title="\HybridPHP\Core\Http\ResponseFactory">ResponseFactory</abbr></a></span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/HybridPHP-Core-Http-ResponseFactory.html"><abbr title="\HybridPHP\Core\Http\ResponseFactory">ResponseFactory</abbr></a></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_dd">
+        dd()
+        <a href="namespaces/default.html#function_dd" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">158</span>
+
+            <a href="packages/HybridPHP.html#source-view.158" class="phpdocumentor-element-found-in__source" data-line="158" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Dump and die</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">dd</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$vars</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">never</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$vars</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">never</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_dump">
+        dump()
+        <a href="namespaces/default.html#function_dump" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">171</span>
+
+            <a href="packages/HybridPHP.html#source-view.171" class="phpdocumentor-element-found-in__source" data-line="171" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Dump variables</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">dump</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$vars</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$vars</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_now">
+        now()
+        <a href="namespaces/default.html#function_now" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">183</span>
+
+            <a href="packages/HybridPHP.html#source-view.183" class="phpdocumentor-element-found-in__source" data-line="183" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Get current datetime</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">now</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeImmutable">DateTimeImmutable</abbr></span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\DateTimeImmutable">DateTimeImmutable</abbr></span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_uuid">
+        uuid()
+        <a href="namespaces/default.html#function_uuid" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/helpers.php"><a href="files/core-helpers.html"><abbr title="core/helpers.php">helpers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">193</span>
+
+            <a href="packages/HybridPHP.html#source-view.193" class="phpdocumentor-element-found-in__source" data-line="193" data-modal="source-view" data-src="files/core/helpers.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Generate UUID</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">uuid</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+            </section>
+
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                            
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                                                    <li><a href="packages/HybridPHP.html#toc-interfaces">Interfaces</a></li>
+                                                                <li><a href="packages/HybridPHP.html#toc-classes">Classes</a></li>
+                                                                <li><a href="packages/HybridPHP.html#toc-traits">Traits</a></li>
+                                                                                                        <li><a href="packages/HybridPHP.html#toc-functions">Functions</a></li>
+                                    </ul>
+            </li>
+
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/default.html#function_app">app()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_auth">auth()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_base_path">base_path()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_cache">cache()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_can">can()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_config">config()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_config_path">config_path()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_currentUser">currentUser()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_database_path">database_path()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_dd">dd()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_dump">dump()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_env">env()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_generateJWT">generateJWT()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_hashPassword">hashPassword()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_hasRole">hasRole()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_isGuest">isGuest()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_logger">logger()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_mfa">mfa()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_now">now()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_parseJWT">parseJWT()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_public_path">public_path()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_rbac">rbac()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_response">response()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_storage_path">storage_path()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_user">user()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_uuid">uuid()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_validatePassword">validatePassword()</a></li>
+                                                    <li class=""><a href="namespaces/default.html#function_verifyPassword">verifyPassword()</a></li>
+                                            </ul>
+                </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+        </div>
+        <a href="packages/HybridPHP.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>

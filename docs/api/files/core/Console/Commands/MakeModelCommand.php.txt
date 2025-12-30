@@ -1,0 +1,392 @@
+<?php
+
+declare(strict_types=1);
+
+namespace HybridPHP\Core\Console\Commands;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
+/**
+ * Make model command
+ */
+class MakeModelCommand extends Command
+{
+    protected static $defaultName = 'make:model';
+    protected static $defaultDescription = 'Create a new model class';
+
+    protected function configure(): void
+    {
+        $this
+            ->setDescription('Create a new model class')
+            ->setHelp('This command allows you to create a new model class')
+            ->addArgument(
+                'name',
+                InputArgument::REQUIRED,
+                'The name of the model'
+            )
+            ->addOption(
+                'migration',
+                'm',
+                InputOption::VALUE_NONE,
+                'Also create a migration file'
+            )
+            ->addOption(
+                'controller',
+                'c',
+                InputOption::VALUE_NONE,
+                'Also create a controller'
+            )
+            ->addOption(
+                'resource',
+                'r',
+                InputOption::VALUE_NONE,
+                'Create a resource controller (used with -c)'
+            );
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $io = new SymfonyStyle($input, $output);
+        
+        try {
+            $name = $input->getArgument('name');
+            $createMigration = $input->getOption('migration');
+            $createController = $input->getOption('controller');
+            $isResource = $input->getOption('resource');
+            
+            // Create model
+            $modelFilename = $this->createModel($name);
+            $io->success("Model created: {$modelFilename}");
+            
+            // Create migration if requested
+            if ($createMigration) {
+                $migrationName = 'create_' . $this->getTableName($name) . '_table';
+                $this->createMigration($migrationName, $this->getTableName($name));
+                $io->success("Migration created for {$name}");
+            }
+            
+            // Create controller if requested
+            if ($createController) {
+                $controllerName = $name . 'Controller';
+                $this->createController($controllerName, $isResource);
+                $io->success("Controller created: {$controllerName}");
+            }
+            
+            return Command::SUCCESS;
+            
+        } catch (\Throwable $e) {
+            $io->error('Failed to create model: ' . $e->getMessage());
+            if ($output->isVerbose()) {
+                $io->text($e->getTraceAsString());
+            }
+            return Command::FAILURE;
+        }
+    }
+
+    private function createModel(string $name): string
+    {
+        $className = $this->studlyCase($name);
+        $tableName = $this->getTableName($name);
+        
+        $filename = "{$className}.php";
+        $filepath = 'app/Models/' . $filename;
+        
+        if (!is_dir('app/Models')) {
+            mkdir('app/Models', 0755, true);
+        }
+        
+        $template = $this->getModelTemplate($className, $tableName);
+        file_put_contents($filepath, $template);
+        
+        return $filename;
+    }
+
+    private function createMigration(string $migrationName, string $tableName): void
+    {
+        $timestamp = date('Y_m_d_His');
+        $className = $this->studlyCase($migrationName);
+        $filename = "{$timestamp}_{$migrationName}.php";
+        $filepath = 'database/migrations/' . $filename;
+        
+        if (!is_dir('database/migrations')) {
+            mkdir('database/migrations', 0755, true);
+        }
+        
+        $template = $this->getMigrationTemplate($className, $tableName);
+        file_put_contents($filepath, $template);
+    }
+
+    private function createController(string $controllerName, bool $isResource): void
+    {
+        $className = $this->studlyCase($controllerName);
+        $filename = "{$className}.php";
+        $filepath = 'app/Controllers/' . $filename;
+        
+        if (!is_dir('app/Controllers')) {
+            mkdir('app/Controllers', 0755, true);
+        }
+        
+        $template = $isResource ? $this->getResourceControllerTemplate($className) : $this->getBasicControllerTemplate($className);
+        file_put_contents($filepath, $template);
+    }
+
+    private function studlyCase(string $value): string
+    {
+        $value = str_replace(['-', '_'], ' ', $value);
+        $value = ucwords($value);
+        return str_replace(' ', '', $value);
+    }
+
+    private function getTableName(string $modelName): string
+    {
+        // Convert StudlyCase to snake_case and pluralize
+        $tableName = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $modelName));
+        
+        // Simple pluralization
+        if (str_ends_with($tableName, 'y')) {
+            $tableName = substr($tableName, 0, -1) . 'ies';
+        } elseif (str_ends_with($tableName, 's')) {
+            $tableName .= 'es';
+        } else {
+            $tableName .= 's';
+        }
+        
+        return $tableName;
+    }
+
+    private function getModelTemplate(string $className, string $tableName): string
+    {
+        return <<<PHP
+<?php
+
+declare(strict_types=1);
+
+namespace App\Models;
+
+use HybridPHP\Core\Database\ORM\ActiveRecord;
+
+/**
+ * {$className} Model
+ * 
+ * @property int \$id
+ * @property string \$created_at
+ * @property string \$updated_at
+ */
+class {$className} extends ActiveRecord
+{
+    /**
+     * Get the table name for this model
+     */
+    public static function tableName(): string
+    {
+        return '{$tableName}';
+    }
+
+    /**
+     * Get the primary key column name
+     */
+    public static function primaryKey(): string
+    {
+        return 'id';
+    }
+
+    /**
+     * Get validation rules
+     */
+    public function rules(): array
+    {
+        return [
+            // Example: [['name', 'email'], 'required'],
+            // Example: ['email', 'email'],
+        ];
+    }
+
+    /**
+     * Get attribute labels
+     */
+    public function attributeLabels(): array
+    {
+        return [
+            'id' => 'ID',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+        ];
+    }
+}
+PHP;
+    }
+
+    private function getMigrationTemplate(string $className, string $tableName): string
+    {
+        return <<<PHP
+<?php
+
+declare(strict_types=1);
+
+use HybridPHP\Core\Database\Migration\AbstractMigration;
+use HybridPHP\Core\Database\DatabaseInterface;
+use Amp\Future;
+
+/**
+ * Migration: Create {$tableName} table
+ */
+class {$className} extends AbstractMigration
+{
+    protected string \$description = 'Create {$tableName} table';
+
+    /**
+     * Run the migration
+     */
+    public function up(DatabaseInterface \$database): Future
+    {
+        return \$this->createTable('{$tableName}', [
+            'id' => ['type' => 'INT', 'length' => 11, 'unsigned' => true, 'auto_increment' => true],
+            // Add your columns here
+            'created_at' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP'],
+            'updated_at' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP', 'nullable' => true],
+        ], [
+            'primary_key' => 'id'
+        ]);
+    }
+
+    /**
+     * Reverse the migration
+     */
+    public function down(DatabaseInterface \$database): Future
+    {
+        return \$this->dropTable('{$tableName}');
+    }
+}
+PHP;
+    }
+
+    private function getBasicControllerTemplate(string $className): string
+    {
+        return <<<PHP
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use HybridPHP\Core\Http\Request;
+use HybridPHP\Core\Http\Response;
+use Amp\Future;
+use function Amp\async;
+
+/**
+ * {$className}
+ */
+class {$className}
+{
+    /**
+     * Handle the request
+     */
+    public function index(Request \$request): Future
+    {
+        return async(function () use (\$request) {
+            return Response::json([
+                'message' => 'Hello from {$className}!'
+            ]);
+        });
+    }
+}
+PHP;
+    }
+
+    private function getResourceControllerTemplate(string $className): string
+    {
+        return <<<PHP
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use HybridPHP\Core\Http\Request;
+use HybridPHP\Core\Http\Response;
+use Amp\Future;
+use function Amp\async;
+
+/**
+ * {$className} - Resource Controller
+ */
+class {$className}
+{
+    /**
+     * Display a listing of the resource
+     */
+    public function index(Request \$request): Future
+    {
+        return async(function () use (\$request) {
+            // TODO: Implement index logic
+            return Response::json([
+                'data' => [],
+                'message' => 'Resource listing'
+            ]);
+        });
+    }
+
+    /**
+     * Store a newly created resource
+     */
+    public function store(Request \$request): Future
+    {
+        return async(function () use (\$request) {
+            // TODO: Implement store logic
+            return Response::json([
+                'message' => 'Resource created'
+            ], 201);
+        });
+    }
+
+    /**
+     * Display the specified resource
+     */
+    public function show(Request \$request, string \$id): Future
+    {
+        return async(function () use (\$request, \$id) {
+            // TODO: Implement show logic
+            return Response::json([
+                'id' => \$id,
+                'message' => 'Resource details'
+            ]);
+        });
+    }
+
+    /**
+     * Update the specified resource
+     */
+    public function update(Request \$request, string \$id): Future
+    {
+        return async(function () use (\$request, \$id) {
+            // TODO: Implement update logic
+            return Response::json([
+                'id' => \$id,
+                'message' => 'Resource updated'
+            ]);
+        });
+    }
+
+    /**
+     * Remove the specified resource
+     */
+    public function destroy(Request \$request, string \$id): Future
+    {
+        return async(function () use (\$request, \$id) {
+            // TODO: Implement destroy logic
+            return Response::json([
+                'id' => \$id,
+                'message' => 'Resource deleted'
+            ]);
+        });
+    }
+}
+PHP;
+    }
+}

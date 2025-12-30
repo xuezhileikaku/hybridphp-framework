@@ -1,0 +1,53 @@
+{
+    "timestamp": "2025-12-30T05:21:42+00:00",
+    "analysis": {
+        "bottlenecks": [
+            {
+                "component": "cache",
+                "severity": "critical",
+                "current": 32201.554529848385,
+                "expected": 100000,
+                "message": "Cache performance (32201.554529848 ops\/sec) is below threshold (100000 ops\/sec)"
+            },
+            {
+                "component": "cache",
+                "severity": "critical",
+                "current": 32201.554529848385,
+                "expected": 100000,
+                "message": "Cache performance (32201.554529848 ops\/sec) is below threshold (100000 ops\/sec)"
+            }
+        ],
+        "recommendations": [
+            {
+                "component": "cache",
+                "priority": "medium",
+                "suggestions": [
+                    "Use memory cache for hot data",
+                    "Implement multi-level caching (L1: memory, L2: Redis)",
+                    "Optimize serialization (use igbinary or msgpack)",
+                    "Batch cache operations where possible"
+                ]
+            },
+            {
+                "component": "cache",
+                "priority": "medium",
+                "suggestions": [
+                    "Use memory cache for hot data",
+                    "Implement multi-level caching (L1: memory, L2: Redis)",
+                    "Optimize serialization (use igbinary or msgpack)",
+                    "Batch cache operations where possible"
+                ]
+            }
+        ],
+        "score": 50
+    },
+    "thresholds": {
+        "routing_ops_min": 50000,
+        "container_ops_min": 80000,
+        "cache_ops_min": 100000,
+        "request_response_ops_min": 40000,
+        "async_ops_min": 20000,
+        "memory_max_mb": 50,
+        "p99_max_ms": 10
+    }
+}

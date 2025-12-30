@@ -1,0 +1,116 @@
+{
+    "timestamp": "2025-12-30T05:21:42+00:00",
+    "php_version": "8.2.21",
+    "config": {
+        "iterations": 10000,
+        "warmup": 100,
+        "concurrent": 100,
+        "output_dir": "E:\\repos\\LaboFrame\\scripts\/..\/storage\/benchmarks"
+    },
+    "results": {
+        "routing": {
+            "iterations": 10000,
+            "total_time_ms": 14.673948287963867,
+            "avg_time_ms": 0.0013826000000001803,
+            "min_time_ms": 0.0012,
+            "max_time_ms": 0.0413,
+            "median_time_ms": 0.0014,
+            "p95_time_ms": 0.0014,
+            "p99_time_ms": 0.0022,
+            "ops_per_sec": 681479.8446715518,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "container": {
+            "iterations": 10000,
+            "total_time_ms": 8.554935455322266,
+            "avg_time_ms": 0.000783159999999963,
+            "min_time_ms": 0.0007,
+            "max_time_ms": 0.0102,
+            "median_time_ms": 0.0008,
+            "p95_time_ms": 0.0008,
+            "p99_time_ms": 0.0009,
+            "ops_per_sec": 1168915.8909759768,
+            "memory_peak_bytes": 2097152,
+            "memory_peak_mb": 2
+        },
+        "request_response": {
+            "iterations": 10000,
+            "total_time_ms": 28.476953506469727,
+            "avg_time_ms": 0.0027560600000004565,
+            "min_time_ms": 0.0025,
+            "max_time_ms": 0.0393,
+            "median_time_ms": 0.0027,
+            "p95_time_ms": 0.0029,
+            "p99_time_ms": 0.0037,
+            "ops_per_sec": 351161.1590659824,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "cache": {
+            "iterations": 10000,
+            "total_time_ms": 310.5440139770508,
+            "avg_time_ms": 0.030918879999999847,
+            "min_time_ms": 0.0256,
+            "max_time_ms": 0.6834,
+            "median_time_ms": 0.0276,
+            "p95_time_ms": 0.0453,
+            "p99_time_ms": 0.0825,
+            "ops_per_sec": 32201.554529848385,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "async_operations": {
+            "iterations": 10000,
+            "total_time_ms": 479.0489673614502,
+            "avg_time_ms": 0.047755039999999596,
+            "min_time_ms": 0.0401,
+            "max_time_ms": 1.3384,
+            "median_time_ms": 0.0427,
+            "p95_time_ms": 0.0713,
+            "p99_time_ms": 0.1336,
+            "ops_per_sec": 20874.69273773601,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "middleware_pipeline": {
+            "iterations": 10000,
+            "total_time_ms": 47.98102378845215,
+            "avg_time_ms": 0.004635419999999959,
+            "min_time_ms": 0.0025,
+            "max_time_ms": 0.561,
+            "median_time_ms": 0.0043,
+            "p95_time_ms": 0.0075,
+            "p99_time_ms": 0.0119,
+            "ops_per_sec": 208415.72793631707,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "json_serialization": {
+            "iterations": 10000,
+            "total_time_ms": 1156.6059589385986,
+            "avg_time_ms": 0.11545468999999924,
+            "min_time_ms": 0.0987,
+            "max_time_ms": 2.1323,
+            "median_time_ms": 0.1087,
+            "p95_time_ms": 0.1494,
+            "p99_time_ms": 0.2195,
+            "ops_per_sec": 8645.98692641776,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "memory_usage": {
+            "iterations": 10000,
+            "total_time_ms": 79.76007461547852,
+            "avg_time_ms": 0.007861670000000459,
+            "min_time_ms": 0.0057,
+            "max_time_ms": 0.0681,
+            "median_time_ms": 0.0064,
+            "p95_time_ms": 0.0142,
+            "p99_time_ms": 0.0164,
+            "ops_per_sec": 125376.01109589942,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        }
+    }
+}

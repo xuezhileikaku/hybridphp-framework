@@ -1,0 +1,427 @@
+<?php
+
+namespace HybridPHP\Core\Cache;
+
+use Amp\Future;
+use HybridPHP\Core\ConfigManager;
+use function Amp\async;
+
+/**
+ * Cache Manager with anti-patterns protection
+ * 
+ * Provides unified cache management with support for multiple cache drivers,
+ * multi-level caching, and anti-pattern protections (stampede, penetration, avalanche).
+ * 
+ * All operations are fully async using AMPHP v3 Future pattern.
+ */
+class CacheManager
+{
+    private array $stores = [];
+    private array $config;
+    private string $defaultStore;
+
+    public function __construct(ConfigManager $configManager)
+    {
+        $this->config = $configManager->get('cache', []);
+        $this->defaultStore = $this->config['default'] ?? 'redis';
+    }
+
+    /**
+     * Get cache store instance
+     * 
+     * @param string|null $name Store name (uses default if null)
+     * @return CacheInterface Cache store instance
+     */
+    public function store(?string $name = null): CacheInterface
+    {
+        $name = $name ?? $this->defaultStore;
+
+        if (!isset($this->stores[$name])) {
+            $this->stores[$name] = $this->createStore($name);
+        }
+
+        return $this->stores[$name];
+    }
+
+    /**
+     * Create cache store instance based on driver configuration
+     * 
+     * @param string $name Store name from configuration
+     * @return CacheInterface Cache store instance
+     * @throws \InvalidArgumentException If driver is not supported
+     */
+    private function createStore(string $name): CacheInterface
+    {
+        $config = $this->config['stores'][$name] ?? [];
+        
+        return match ($config['driver'] ?? 'redis') {
+            'redis' => new RedisCache($config),
+            'memory' => new MemoryCache($config),
+            'multilevel' => $this->createMultiLevelCache($config),
+            'file' => new FileCache($config),
+            default => throw new \InvalidArgumentException("Unsupported cache driver: {$config['driver']}")
+        };
+    }
+
+    /**
+     * Create cache instance from inline configuration
+     * 
+     * @param array $config Driver configuration
+     * @return CacheInterface Cache instance
+     */
+    private function createCacheFromConfig(array $config): CacheInterface
+    {
+        return match ($config['driver'] ?? 'memory') {
+            'redis' => new RedisCache($config),
+            'memory' => new MemoryCache($config),
+            'file' => new FileCache($config),
+            default => new MemoryCache($config)
+        };
+    }
+
+    /**
+     * Create multi-level cache with L1 (memory) and L2 (redis) layers
+     * 
+     * @param array $config Multi-level cache configuration
+     * @return MultiLevelCache Multi-level cache instance
+     */
+    private function createMultiLevelCache(array $config): MultiLevelCache
+    {
+        $l1Config = $config['l1'] ?? ['driver' => 'memory'];
+        $l2Config = $config['l2'] ?? ['driver' => 'redis'];
+
+        $l1Cache = $this->createCacheFromConfig($l1Config);
+        $l2Cache = $this->createCacheFromConfig($l2Config);
+
+        return new MultiLevelCache($l1Cache, $l2Cache, $config);
+    }
+
+    /**
+     * Cache with anti-stampede protection using remember pattern
+     * 
+     * @param string $key Cache key
+     * @param callable $callback Async callback to generate value if not cached
+     * @param int|null $ttl Time to live in seconds
+     * @param string|null $store Store name (uses default if null)
+     * @return Future<mixed> Cached or generated value
+     */
+    public function remember(string $key, callable $callback, ?int $ttl = null, ?string $store = null): Future
+    {
+        return $this->store($store)->remember($key, $callback, $ttl);
+    }
+
+    /**
+     * Cache with anti-penetration protection
+     * 
+     * Prevents cache penetration by caching null results with a shorter TTL.
+     * This protects against repeated database queries for non-existent data.
+     * 
+     * @param string $key Cache key
+     * @param callable $callback Async callback to generate value
+     * @param int|null $ttl Time to live in seconds
+     * @param string|null $store Store name (uses default if null)
+     * @return Future<mixed> Cached or generated value (may be null)
+     */
+    public function rememberWithNullProtection(string $key, callable $callback, ?int $ttl = null, ?string $store = null): Future
+    {
+        return async(function () use ($key, $callback, $ttl, $store): mixed {
+            $cache = $this->store($store);
+            $nullKey = $key . ':null';
+            
+            // Check if we have a null marker
+            $hasNull = $cache->has($nullKey)->await();
+            if ($hasNull) {
+                return null;
+            }
+
+            // Try to get the actual value
+            $value = $cache->get($key)->await();
+            if ($value !== null) {
+                return $value;
+            }
+
+            // Execute callback
+            $result = $callback();
+            $value = $result instanceof Future ? $result->await() : $result;
+            
+            if ($value === null) {
+                // Cache null result with shorter TTL to prevent penetration
+                $nullTtl = min($ttl ?? 300, $this->config['protection']['penetration']['null_ttl'] ?? 300);
+                $cache->set($nullKey, true, $nullTtl)->await();
+            } else {
+                $cache->set($key, $value, $ttl)->await();
+            }
+
+            return $value;
+        });
+    }
+
+    /**
+     * Batch cache operations to prevent avalanche
+     * 
+     * Fetches multiple keys at once, only calling the callback for missing keys.
+     * This prevents cache avalanche by reducing database load during cache misses.
+     * 
+     * @param array $keys Array of cache keys
+     * @param callable $callback Async callback receiving missing keys, returns key-value pairs
+     * @param int|null $ttl Time to live in seconds
+     * @param string|null $store Store name (uses default if null)
+     * @return Future<array> Array of key-value pairs
+     */
+    public function batchRemember(array $keys, callable $callback, ?int $ttl = null, ?string $store = null): Future
+    {
+        return async(function () use ($keys, $callback, $ttl, $store): array {
+            $cache = $this->store($store);
+            
+            // Get existing values
+            $existing = $cache->getMultiple($keys)->await();
+            
+            // Find missing keys
+            $missing = [];
+            foreach ($keys as $key) {
+                if (!isset($existing[$key]) || $existing[$key] === null) {
+                    $missing[] = $key;
+                }
+            }
+
+            // Fetch missing values
+            if (!empty($missing)) {
+                $result = $callback($missing);
+                $newValues = $result instanceof Future ? $result->await() : $result;
+                
+                // Apply TTL jitter to prevent avalanche
+                $jitteredTtl = $this->applyTtlJitter($ttl);
+                
+                // Cache new values
+                if (!empty($newValues)) {
+                    $cache->setMultiple($newValues, $jitteredTtl)->await();
+                    $existing = array_merge($existing, $newValues);
+                }
+            }
+
+            return $existing;
+        });
+    }
+
+    /**
+     * Apply random jitter to TTL to prevent cache avalanche
+     * 
+     * @param int|null $ttl Base TTL
+     * @return int|null TTL with jitter applied
+     */
+    private function applyTtlJitter(?int $ttl): ?int
+    {
+        if ($ttl === null) {
+            return null;
+        }
+        
+        $jitterEnabled = $this->config['protection']['avalanche']['enabled'] ?? true;
+        if (!$jitterEnabled) {
+            return $ttl;
+        }
+        
+        $jitterRange = $this->config['protection']['avalanche']['jitter_range'] ?? 0.1;
+        $jitter = (int) ($ttl * $jitterRange * (mt_rand(0, 100) / 100));
+        
+        return $ttl + $jitter;
+    }
+
+    /**
+     * Warm up cache with data
+     * 
+     * @param array $data Key-value pairs to cache
+     * @param int|null $ttl Time to live in seconds
+     * @param string|null $store Store name (uses default if null)
+     * @return Future<bool> Success status
+     */
+    public function warmUp(array $data, ?int $ttl = null, ?string $store = null): Future
+    {
+        return $this->store($store)->setMultiple($data, $ttl);
+    }
+
+    /**
+     * Cache invalidation by tags
+     * 
+     * Invalidates all cache entries associated with the given tags.
+     * 
+     * @param array $tags Array of tag names
+     * @param string|null $store Store name (uses default if null)
+     * @return Future<bool> Success status
+     */
+    public function invalidateByTags(array $tags, ?string $store = null): Future
+    {
+        return async(function () use ($tags, $store): bool {
+            $cache = $this->store($store);
+
+            foreach ($tags as $tag) {
+                // Get keys associated with this tag
+                $tagKey = "tag:{$tag}";
+                $keys = $cache->get($tagKey, [])->await();
+                
+                if (!empty($keys) && is_array($keys)) {
+                    $cache->deleteMultiple($keys)->await();
+                    $cache->delete($tagKey)->await();
+                }
+            }
+
+            return true;
+        });
+    }
+
+    /**
+     * Set cache with tags for grouped invalidation
+     * 
+     * @param string $key Cache key
+     * @param mixed $value Value to cache
+     * @param array $tags Array of tag names
+     * @param int|null $ttl Time to live in seconds
+     * @param string|null $store Store name (uses default if null)
+     * @return Future<bool> Success status
+     */
+    public function setWithTags(string $key, mixed $value, array $tags = [], ?int $ttl = null, ?string $store = null): Future
+    {
+        return async(function () use ($key, $value, $tags, $ttl, $store): bool {
+            $cache = $this->store($store);
+            
+            // Set the main value
+            $cache->set($key, $value, $ttl)->await();
+            
+            // Associate with tags
+            foreach ($tags as $tag) {
+                $tagKey = "tag:{$tag}";
+                $keys = $cache->get($tagKey, [])->await();
+                
+                if (!is_array($keys)) {
+                    $keys = [];
+                }
+                
+                $keys[] = $key;
+                $keys = array_unique($keys);
+                $cache->set($tagKey, $keys, $ttl)->await();
+            }
+
+            return true;
+        });
+    }
+
+    /**
+     * Get cache statistics for a store
+     * 
+     * @param string|null $store Store name (uses default if null)
+     * @return Future<array> Cache statistics
+     */
+    public function getStats(?string $store = null): Future
+    {
+        return $this->store($store)->getStats();
+    }
+
+    /**
+     * Health check for all configured cache stores
+     * 
+     * @return Future<array> Health status for each store
+     */
+    public function healthCheck(): Future
+    {
+        return async(function (): array {
+            $results = [];
+            $stores = $this->config['stores'] ?? [];
+            
+            foreach (array_keys($stores) as $name) {
+                $startTime = microtime(true);
+                try {
+                    $store = $this->store($name);
+                    $testKey = 'health_check_' . uniqid();
+                    
+                    // Test write
+                    $store->set($testKey, 'test', 10)->await();
+                    
+                    // Test read
+                    $value = $store->get($testKey)->await();
+                    
+                    // Test delete
+                    $store->delete($testKey)->await();
+                    
+                    $responseTime = (microtime(true) - $startTime) * 1000; // Convert to ms
+                    
+                    $results[$name] = [
+                        'status' => $value === 'test' ? 'healthy' : 'degraded',
+                        'response_time_ms' => round($responseTime, 2),
+                    ];
+                } catch (\Throwable $e) {
+                    $results[$name] = [
+                        'status' => 'unhealthy',
+                        'error' => $e->getMessage(),
+                        'response_time_ms' => round((microtime(true) - $startTime) * 1000, 2),
+                    ];
+                }
+            }
+
+            return $results;
+        });
+    }
+
+    /**
+     * Clear all cache stores
+     * 
+     * @return Future<bool> Success status
+     */
+    public function clearAll(): Future
+    {
+        return async(function (): bool {
+            $stores = $this->config['stores'] ?? [];
+            
+            foreach (array_keys($stores) as $name) {
+                try {
+                    $this->store($name)->clear()->await();
+                } catch (\Throwable $e) {
+                    // Log error but continue clearing other stores
+                    error_log("Failed to clear cache store '{$name}': " . $e->getMessage());
+                }
+            }
+            return true;
+        });
+    }
+
+    /**
+     * Get the default store name
+     * 
+     * @return string Default store name
+     */
+    public function getDefaultStore(): string
+    {
+        return $this->defaultStore;
+    }
+
+    /**
+     * Set the default store name
+     * 
+     * @param string $store Store name
+     * @return self
+     */
+    public function setDefaultStore(string $store): self
+    {
+        $this->defaultStore = $store;
+        return $this;
+    }
+
+    /**
+     * Get all available store names
+     * 
+     * @return array List of store names
+     */
+    public function getAvailableStores(): array
+    {
+        return array_keys($this->config['stores'] ?? []);
+    }
+
+    /**
+     * Check if a store exists in configuration
+     * 
+     * @param string $name Store name
+     * @return bool True if store exists
+     */
+    public function hasStore(string $name): bool
+    {
+        return isset($this->config['stores'][$name]);
+    }
+}

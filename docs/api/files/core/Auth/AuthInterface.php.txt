@@ -1,0 +1,74 @@
+<?php
+
+declare(strict_types=1);
+
+namespace HybridPHP\Core\Auth;
+
+use Amp\Future;
+
+/**
+ * Authentication interface
+ */
+interface AuthInterface
+{
+    /**
+     * Attempt to authenticate a user
+     *
+     * @param array $credentials
+     * @return Future<UserInterface|null>
+     */
+    public function attempt(array $credentials): Future;
+
+    /**
+     * Login a user
+     *
+     * @param UserInterface $user
+     * @param bool $remember
+     * @return Future<string|bool>
+     */
+    public function login(UserInterface $user, bool $remember = false): Future;
+
+    /**
+     * Logout the current user
+     *
+     * @return Future<bool>
+     */
+    public function logout(): Future;
+
+    /**
+     * Get the currently authenticated user
+     *
+     * @return Future<UserInterface|null>
+     */
+    public function user(): Future;
+
+    /**
+     * Check if a user is authenticated
+     *
+     * @return Future<bool>
+     */
+    public function check(): Future;
+
+    /**
+     * Get the user ID
+     *
+     * @return Future<int|string|null>
+     */
+    public function id(): Future;
+
+    /**
+     * Validate a token
+     *
+     * @param string $token
+     * @return Future<UserInterface|null>
+     */
+    public function validateToken(string $token): Future;
+
+    /**
+     * Refresh a token
+     *
+     * @param string $token
+     * @return Future<string|null>
+     */
+    public function refreshToken(string $token): Future;
+}

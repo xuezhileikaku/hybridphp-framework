@@ -1,0 +1,116 @@
+{
+    "timestamp": "2025-12-30T05:19:12+00:00",
+    "php_version": "8.2.21",
+    "config": {
+        "iterations": 5000,
+        "warmup": 100,
+        "concurrent": 100,
+        "output_dir": "E:\\repos\\LaboFrame\\scripts\/..\/storage\/benchmarks"
+    },
+    "results": {
+        "routing": {
+            "iterations": 5000,
+            "total_time_ms": 7.647991180419922,
+            "avg_time_ms": 0.0014467400000000017,
+            "min_time_ms": 0.0013,
+            "max_time_ms": 0.0117,
+            "median_time_ms": 0.0014,
+            "p95_time_ms": 0.0017,
+            "p99_time_ms": 0.0028,
+            "ops_per_sec": 653766.4442920382,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "container": {
+            "iterations": 5000,
+            "total_time_ms": 4.307985305786133,
+            "avg_time_ms": 0.0007891399999999801,
+            "min_time_ms": 0.0007,
+            "max_time_ms": 0.0085,
+            "median_time_ms": 0.0008,
+            "p95_time_ms": 0.0008,
+            "p99_time_ms": 0.0015,
+            "ops_per_sec": 1160635.342298965,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "request_response": {
+            "iterations": 5000,
+            "total_time_ms": 14.589786529541016,
+            "avg_time_ms": 0.0028259000000001658,
+            "min_time_ms": 0.0025,
+            "max_time_ms": 0.031,
+            "median_time_ms": 0.0027,
+            "p95_time_ms": 0.0031,
+            "p99_time_ms": 0.0048,
+            "ops_per_sec": 342705.49400268,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "cache": {
+            "iterations": 5000,
+            "total_time_ms": 142.78292655944824,
+            "avg_time_ms": 0.028453939999999976,
+            "min_time_ms": 0.0255,
+            "max_time_ms": 0.3559,
+            "median_time_ms": 0.0274,
+            "p95_time_ms": 0.0326,
+            "p99_time_ms": 0.042,
+            "ops_per_sec": 35018.19244416615,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "async_operations": {
+            "iterations": 5000,
+            "total_time_ms": 214.5521640777588,
+            "avg_time_ms": 0.042806739999999725,
+            "min_time_ms": 0.0382,
+            "max_time_ms": 0.3432,
+            "median_time_ms": 0.0407,
+            "p95_time_ms": 0.05,
+            "p99_time_ms": 0.0981,
+            "ops_per_sec": 23304.355942957915,
+            "memory_peak_bytes": 2097152,
+            "memory_peak_mb": 2
+        },
+        "middleware_pipeline": {
+            "iterations": 5000,
+            "total_time_ms": 14.405965805053711,
+            "avg_time_ms": 0.002793020000000026,
+            "min_time_ms": 0.0025,
+            "max_time_ms": 0.1499,
+            "median_time_ms": 0.0026,
+            "p95_time_ms": 0.0029,
+            "p99_time_ms": 0.0043,
+            "ops_per_sec": 347078.43039902026,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "json_serialization": {
+            "iterations": 5000,
+            "total_time_ms": 480.4389476776123,
+            "avg_time_ms": 0.09595575999999952,
+            "min_time_ms": 0.0877,
+            "max_time_ms": 0.5442,
+            "median_time_ms": 0.0931,
+            "p95_time_ms": 0.1056,
+            "p99_time_ms": 0.1484,
+            "ops_per_sec": 10407.149595530163,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        },
+        "memory_usage": {
+            "iterations": 5000,
+            "total_time_ms": 32.22012519836426,
+            "avg_time_ms": 0.006357659999999704,
+            "min_time_ms": 0.0059,
+            "max_time_ms": 0.1198,
+            "median_time_ms": 0.0063,
+            "p95_time_ms": 0.0065,
+            "p99_time_ms": 0.0073,
+            "ops_per_sec": 155182.5130789324,
+            "memory_peak_bytes": 0,
+            "memory_peak_mb": 0
+        }
+    }
+}
